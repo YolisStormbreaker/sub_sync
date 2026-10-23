@@ -12,6 +12,7 @@ Working copy of **subsyncd**, the subtitle service on the Synology NAS (192.168.
 | `subsyncd/service.sh` | Starts the always-on container `subsyncd` | same folder |
 | `subsyncd/run.sh` | One-off runs of `main.py` in a throwaway container | same folder |
 | `nas/watchdog.sh` | Hourly DSM task (id 14): starts the container if it is down | `/volume1/docker/subsync-tools/watchdog.sh` |
+| `nas/dsm-icon/` | PNG renders of the panel icon for the DSM package shortcut and main menu | `/var/packages/Subsync/target/ui/images/` |
 | `tools/applydiff.py` | Applies a header-less unified diff with exact-match checks. Used for deploys, because the NAS has no `patch` | copied to the NAS for each deploy |
 | `docs/subsync-nas-wrapper.md` | Running notes: state, decisions, findings (in Russian) | — |
 | `subsyncd/static/` | Panel front end: `subsync.css` (design tokens and components from `design/`), `app.css`, `app.js` (shared helpers), one script per page | same folder, served at `/static/` |
