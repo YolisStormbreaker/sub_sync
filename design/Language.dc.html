@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Subsync — язык оригинала и дорожка</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./subsync.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="ss" data-theme="{{theme}}">
+<div class="shell">
+  <aside class="rail">
+    <div class="brand"><svg viewBox="0 0 512 512" aria-hidden="true"><rect x="16" y="16" width="480" height="480" rx="104" fill="#161D19" stroke="#7DCE9B" stroke-width="16"></rect><g fill="#F2F5F0"><rect x="91" y="182" width="10" height="36" rx="5"></rect><rect x="111" y="168" width="10" height="64" rx="5"></rect><rect x="131" y="176" width="10" height="48" rx="5"></rect><rect x="151" y="154" width="10" height="92" rx="5"></rect><rect x="171" y="140" width="10" height="120" rx="5"></rect><rect x="191" y="160" width="10" height="80" rx="5"></rect><rect x="211" y="132" width="10" height="136" rx="5"></rect><rect x="231" y="148" width="10" height="104" rx="5"></rect><rect x="251" y="125" width="10" height="150" rx="5"></rect><rect x="271" y="148" width="10" height="104" rx="5"></rect><rect x="291" y="132" width="10" height="136" rx="5"></rect><rect x="311" y="160" width="10" height="80" rx="5"></rect><rect x="331" y="140" width="10" height="120" rx="5"></rect><rect x="351" y="154" width="10" height="92" rx="5"></rect><rect x="371" y="176" width="10" height="48" rx="5"></rect><rect x="391" y="168" width="10" height="64" rx="5"></rect><rect x="411" y="182" width="10" height="36" rx="5"></rect></g><rect x="136" y="318" width="240" height="24" rx="12" fill="#7DCE9B"></rect><rect x="188" y="370" width="136" height="24" rx="12" fill="#7DCE9B"></rect></svg><b>Subsync</b><span>Субтитры для домашней библиотеки</span></div>
+    <div class="status-mini"><span class="live"><i class="dot"></i>Работает</span><span>ночью записано 37</span><span class="num">скачано 44 из 100</span></div>
+    <nav class="nav" aria-label="Разделы">
+      <a href="Language.dc.html" aria-current="page"><span>Язык и дорожка</span><span class="count" aria-label="38 ждут решения">38</span></a>
+      <a href="Review.dc.html"><span>Проверка</span><span class="count" aria-label="17 ждут проверки">17</span></a>
+      <a href="Missing.dc.html"><span>Не найдено</span><span class="count" aria-label="13 можно исправить">13</span></a>
+      <a href="Priorities.dc.html"><span>Приоритеты</span></a>
+      <a href="Quality.dc.html"><span>Журнал качества</span></a>
+    </nav>
+    <div class="status">
+      <div class="live"><i class="dot"></i>Сервис работает</div>
+      <div class="status-item"><b>Ночной проход</b><span>сегодня в 03:05, занял 2 ч 14 мин</span>
+        <dl class="night"><dt>записано</dt><dd>37</dd><dt>отложено на проверку</dt><dd>4</dd><dt>не найдено</dt><dd>12</dd></dl>
+      </div>
+      <div class="status-item"><b>Скачивания сегодня: 44 из 100</b><div class="meter"><i style="width: 44%"></i></div><span>Счётчик обнулится в 03:00. Новые файлы проверяются каждые 2 минуты.</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+  <div class="page">
+    <header class="pagehead">
+      <h1 class="t-h1">Язык оригинала и дорожка</h1>
+      <p>38 файлов в 6 папках ждут вашего решения. Чтобы синхронизировать субтитры, сервису нужно знать язык оригинала и дорожку с оригинальной речью. Решение применяется на следующем проходе: новые файлы — в течение 2 минут, старая библиотека — сегодня ночью.</p>
+    </header>
+
+    <div class="filterbar">
+      <div class="filterline">
+        <label class="search"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg><span class="vh">Фильтр библиотеки</span><input type="search" placeholder="Название или серия: s06e05, 6x05, s06, e05"></label>
+        <div class="seg" role="group" aria-label="Показать"><button type="button" aria-pressed="true">Нужен выбор<span class="n">38</span></button><button type="button" aria-pressed="false">В очереди<span class="n">9</span></button><button type="button" aria-pressed="false">Выбрано вами<span class="n">71</span></button></div>
+      </div>
+    </div>
+
+    <!-- group: expanded -->
+    <section class="group" aria-labelledby="g-dw">
+      <div class="group-head">
+        <div class="group-name"><span class="crumb">TVshows</span><h2 class="group-title" id="g-dw">Doctor Who</h2></div>
+        <div class="badges"><span class="badge badge--need">4 ждут вашего выбора</span><span class="badge badge--queue">1 в очереди</span><span class="badge badge--done">1 выбран вами</span></div>
+      </div>
+      <div class="folder-set">
+        <div class="field">
+          <label for="dw-lang">Язык оригинала для всей папки</label>
+          <span class="selectwrap"><select class="select" id="dw-lang"><option>английский (en)</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <span class="feedback feedback--saved"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Указан вами. Действует на все 62 файла папки, кроме тех, где язык задан отдельно.</span>
+        </div>
+        <div class="field">
+          <label for="dw-track">Дорожка оригинала для всей папки</label>
+          <span class="selectwrap"><select class="select" id="dw-track"><option>Решать по каждому файлу</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <span class="help">Дорожки в папке: 2 без языка — 58 файлов, 3 без языка — 4 файла. «Всегда дорожка N» подходит, только если оригинал во всех сериях на одном месте; перед сохранением попросим подтвердить, что вы послушали несколько серий.</span>
+        </div>
+      </div>
+
+      <details class="sect" open>
+        <summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Нужен ваш выбор<span class="count">4</span></summary>
+        <div class="sect-body">
+          <details class="node"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Doctor.Who_S01<span class="tally">1 файл</span></summary></details>
+          <details class="node"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Doctor.Who_S02<span class="tally">1 файл</span></summary></details>
+          <details class="node" open>
+            <summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Doctor.Who_S03<span class="tally">2 файла</span></summary>
+            <div class="node-body">
+              <div class="collapsed-stub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="flex: 1">doctor.who.s03e03.avi: оригинал — дорожка 2. Перенесено в «Выбрано вами».</span><button class="btn btn--quiet" type="button">Отменить</button></div>
+
+              <!-- two-track card, track 1 playing -->
+              <article class="card" aria-labelledby="f-304">
+                <div class="card-head">
+                  <div><h3 class="fname" id="f-304" title="TVshows/Doctor Who/Doctor.Who_S03/doctor.who.s03e04.avi">doctor.who.s03e04.avi</h3>
+                  <p class="fmeta"><span class="num">45:10</span><span>2 дорожки</span><span>субтитры: русские есть, английских нет</span></p></div>
+                  <span class="badge badge--need">Нужен ваш выбор</span>
+                </div>
+                <p class="why"><b>Язык оригинала — английский</b>, задан вами для папки Doctor Who. Автоопределение сравнило обе дорожки с английскими субтитрами, но уверенного победителя нет: дорожка 2 впереди на 0,02, а нужно хотя бы 0,03. Послушайте обе с одного момента и выберите оригинал.</p>
+                <div class="moment">
+                  <span class="moment-label">Обе дорожки играют с <b>22:35</b>, середина серии</span>
+                  <span class="moment-scale" aria-hidden="true"><i style="left: 15%"></i><i style="left: 30%"></i><i class="on" style="left: 50%"></i><i style="left: 70%"></i><i style="left: 85%"></i></span>
+                  <button class="btn btn--quiet" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3.5v9l6.5-4.5z" fill="currentColor"></path><path d="M12 3.5v9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>Другой фрагмент</button>
+                </div>
+                <ol class="tracks">
+                  <li class="track is-playing">
+                    <button class="play is-on" type="button" aria-label="Пауза, дорожка 1"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="3" height="10" rx="1" fill="currentColor"></rect><rect x="9" y="3" width="3" height="10" rx="1" fill="currentColor"></rect></svg></button>
+                    <div class="track-id"><b>Дорожка 1</b><span class="playtime">Играет 0:07 из 0:20</span></div>
+                    <div class="score"><div class="score-top"><span>Совпадение речи</span><span class="score-val">0,44</span></div><div class="score-bar"><i style="width: 44%"></i></div></div>
+                    <label class="tlang"><span class="vh">Язык дорожки 1</span><span class="selectwrap"><select class="select select--sm"><option>Язык: не указан</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+                    <button class="btn tact" type="button">Это оригинал</button>
+                    <i class="track-prog" style="width: 35%"></i>
+                  </li>
+                  <li class="track">
+                    <button class="play" type="button" aria-label="Послушать дорожку 2 с того же момента"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor"></path></svg></button>
+                    <div class="track-id"><b>Дорожка 2</b><span>MP3 2.0, язык не указан</span></div>
+                    <div class="score is-best"><div class="score-top"><span>Совпадение речи</span><span class="score-val">0,46</span></div><div class="score-bar"><i style="width: 46%"></i></div><span>лучшая, но не уверенно</span></div>
+                    <label class="tlang"><span class="vh">Язык дорожки 2</span><span class="selectwrap"><select class="select select--sm"><option>Язык: не указан</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+                    <button class="btn tact" type="button">Это оригинал</button>
+                  </li>
+                </ol>
+                <details class="mini"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Другой язык оригинала только для этого файла</summary></details>
+              </article>
+
+              <!-- card after a label settled the original -->
+              <article class="card card--settled" aria-labelledby="f-305">
+                <div class="card-head">
+                  <div><h3 class="fname" id="f-305" title="TVshows/Doctor Who/Doctor.Who_S03/doctor.who.s03e05.avi">doctor.who.s03e05.avi</h3>
+                  <p class="fmeta"><span class="num">44:52</span><span>2 дорожки</span></p></div>
+                  <span class="badge badge--done">Ждёт подтверждения</span>
+                </div>
+                <div class="verdict" role="status">
+                  <p class="t-h3">Оригинал — дорожка 2</p>
+                  <p>Вы указали: дорожка 1 — русский. Других дорожек без языка, кроме второй, нет, поэтому оригинал — она.</p>
+                  <div class="actions"><button class="btn btn--primary" type="button">Подтвердить: оригинал — дорожка 2</button><button class="btn" type="button">Выбрать другую</button></div>
+                  <span class="help" style="color: var(--ink-2)">После подтверждения файл перейдёт в «Выбрано вами», субтитры синхронизируются на следующем проходе.</span>
+                </div>
+                <ol class="tracks">
+                  <li class="track is-labelled">
+                    <button class="play" type="button" aria-label="Послушать дорожку 1"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor"></path></svg></button>
+                    <div class="track-id"><b>Дорожка 1</b><span>MP3 2.0, русский — указали вы</span></div>
+                    <div class="score"><span>Не участвует в сравнении</span></div>
+                    <label class="tlang"><span class="vh">Язык дорожки 1</span><span class="selectwrap"><select class="select select--sm"><option>Язык: русский</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+                    <span class="tact feedback feedback--saved"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Сохранено</span>
+                  </li>
+                  <li class="track is-original is-candidate">
+                    <button class="play" type="button" aria-label="Послушать дорожку 2"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor"></path></svg></button>
+                    <div class="track-id"><b>Дорожка 2</b><span>MP3 2.0, язык не указан</span></div>
+                    <div class="score"><span class="badge badge--done" style="align-self: flex-start">Оригинал — вывод из вашей метки</span></div>
+                    <label class="tlang"><span class="vh">Язык дорожки 2</span><span class="selectwrap"><select class="select select--sm"><option>Язык: не указан</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+                    <span class="tact"></span>
+                  </li>
+                </ol>
+              </article>
+            </div>
+          </details>
+        </div>
+      </details>
+      <details class="sect">
+        <summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>В очереди на автоопределение<span class="badge badge--queue">1</span><small>можно не ждать и выбрать на слух</small></summary>
+      </details>
+      <details class="sect">
+        <summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Выбрано вами<span class="badge badge--done">1</span><small>здесь можно отменить выбор</small></summary>
+      </details>
+    </section>
+
+    <!-- loose films, six-track card -->
+    <section class="group" aria-labelledby="g-mov">
+      <div class="group-head">
+        <div class="group-name"><span class="crumb">Movies</span><h2 class="group-title" id="g-mov">Отдельные фильмы</h2></div>
+        <div class="badges"><span class="badge badge--need">2 ждут вашего выбора</span></div>
+      </div>
+      <p class="help" style="padding: 0 24px 16px">Файлы, лежащие прямо в Movies. У каждого свой язык и свои дорожки, поэтому общих настроек папки здесь нет.</p>
+      <details class="sect" open>
+        <summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Нужен ваш выбор<span class="count">2</span></summary>
+        <div class="sect-body">
+          <article class="card" aria-labelledby="f-gf">
+            <div class="card-head">
+              <div><h3 class="fname" id="f-gf" title="Movies/Goodfellas.mkv">Goodfellas.mkv</h3>
+              <p class="fmeta"><span class="num">2:25:46</span><span>6 дорожек</span><span>язык оригинала: английский, по данным TMDb</span></p></div>
+              <span class="badge badge--need">Нужен ваш выбор</span>
+            </div>
+            <div class="cands" role="status">
+              <b>Осталось 2 кандидата: дорожки 3 и 5.</b>
+              <span>Остальные вы отметили как русские и украинскую. Автоопределение сравнит только эти две, когда дойдёт очередь, — или выберите на слух сейчас.</span>
+            </div>
+            <div class="moment">
+              <span class="moment-label">Все дорожки играют с <b>1:12:53</b>, середина фильма</span>
+              <span class="moment-scale" aria-hidden="true"><i style="left: 15%"></i><i style="left: 30%"></i><i class="on" style="left: 50%"></i><i style="left: 70%"></i><i style="left: 85%"></i></span>
+              <button class="btn btn--quiet" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3.5v9l6.5-4.5z" fill="currentColor"></path><path d="M12 3.5v9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>Другой фрагмент</button>
+            </div>
+            <ol class="tracks">
+              <li class="track is-labelled">
+                <button class="play" type="button" aria-label="Послушать дорожку 1"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor"></path></svg></button>
+                <div class="track-id"><b>Дорожка 1</b><span>AC3 5.1, русский — указали вы</span></div>
+                <div class="score"><span>Не участвует в сравнении</span></div>
+                <label class="tlang"><span class="vh">Язык дорожки 1</span><span class="selectwrap"><select class="select select--sm"><option>Язык: русский</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+                <span class="tact"></span>
+              </li>
+              <li class="track is-labelled">
+                <button class="play" type="button" aria-label="Послушать дорожку 2"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor"></path></svg></button>
+                <div class="track-id"><b>Дорожка 2</b><span>AC3 2.0, русский — указали вы</span></div>
+                <div class="score"><span>Не участвует в сравнении</span></div>
+                <label class="tlang"><span class="vh">Язык дорожки 2</span><span class="selectwrap"><select class="select select--sm"><option>Язык: русский</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+                <span class="tact"></span>
+              </li>
+              <li class="track is-candidate">
+                <button class="play is-loading" type="button" aria-label="Фрагмент дорожки 3 готовится"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="26 12" stroke-linecap="round"></circle></svg></button>
+                <div class="track-id"><b>Дорожка 3</b><span>Готовлю фрагмент, 1–3 секунды…</span></div>
+                <div class="score"><span>Ещё не сравнивали</span></div>
+                <label class="tlang"><span class="vh">Язык дорожки 3</span><span class="selectwrap"><select class="select select--sm"><option>Язык: не указан</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+                <button class="btn tact" type="button">Это оригинал</button>
+              </li>
+              <li class="track is-labelled">
+                <button class="play" type="button" aria-label="Послушать дорожку 4"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor"></path></svg></button>
+                <div class="track-id"><b>Дорожка 4</b><span>AC3 2.0, русский — указали вы</span></div>
+                <div class="score"><span>Не участвует в сравнении</span></div>
+                <label class="tlang"><span class="vh">Язык дорожки 4</span><span class="selectwrap"><select class="select select--sm"><option>Язык: русский</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+                <span class="tact"></span>
+              </li>
+              <li class="track is-candidate">
+                <button class="play" type="button" aria-label="Послушать дорожку 5 с того же момента"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor"></path></svg></button>
+                <div class="track-id"><b>Дорожка 5</b><span>DTS 5.1, язык не указан</span></div>
+                <div class="score"><span>Ещё не сравнивали</span></div>
+                <label class="tlang"><span class="vh">Язык дорожки 5</span><span class="selectwrap"><select class="select select--sm"><option>Язык: не указан</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+                <button class="btn tact" type="button">Это оригинал</button>
+              </li>
+              <li class="track is-labelled">
+                <button class="play" type="button" aria-label="Послушать дорожку 6"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor"></path></svg></button>
+                <div class="track-id"><b>Дорожка 6</b><span>AC3 2.0, украинский — указали вы</span></div>
+                <div class="score"><span>Не участвует в сравнении</span></div>
+                <label class="tlang"><span class="vh">Язык дорожки 6</span><span class="selectwrap"><select class="select select--sm"><option>Язык: украинский</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+                <span class="tact"></span>
+              </li>
+            </ol>
+            <details class="mini"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Другой язык оригинала для этого файла</summary></details>
+          </article>
+
+          <!-- language unknown: file-level language open by default -->
+          <article class="card" aria-labelledby="f-av">
+            <div class="card-head">
+              <div><h3 class="fname" id="f-av" title="Movies/Aviator.2004.BDRip.avi">Aviator.2004.BDRip.avi</h3>
+              <p class="fmeta"><span class="num">2:49:52</span><span>1 дорожка</span></p></div>
+              <span class="badge badge--need">Неизвестен язык</span>
+            </div>
+            <p class="why">Язык оригинала неизвестен: в файле нет меток, а TMDb не нашёл фильм по имени файла. Дорожка всего одна, её выбирать не нужно — укажите только язык.</p>
+            <details class="mini" open><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Язык оригинала для этого файла</summary>
+              <div class="mini-body">
+                <span class="selectwrap" style="width: 260px"><select class="select" aria-label="Язык оригинала для Aviator.2004.BDRip.avi"><option>Выберите язык</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                <span class="help">Сохраняется сразу. Сервис скачает субтитры на этом языке на следующем проходе.</span>
+              </div>
+            </details>
+          </article>
+        </div>
+      </details>
+    </section>
+
+    <!-- collapsed groups -->
+    <details class="group group--collapsed">
+      <summary class="group-head">
+        <span class="group-name"><span class="crumb">TVshows</span><span class="group-title">Black Mirror</span></span>
+        <span class="badges"><span class="badge badge--queue">3 в очереди на автоопределение</span></span>
+      </summary>
+    </details>
+    <details class="group group--collapsed">
+      <summary class="group-head">
+        <span class="group-name"><span class="crumb">Anime</span><span class="group-title">Cowboy Bebop</span></span>
+        <span class="badges"><span class="badge badge--need">26 без языка оригинала</span></span>
+      </summary>
+    </details>
+  </div>
+  </main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":3400}}'>
+class Component extends DCLogic {
+  renderVals() { return { theme: this.props.theme ?? 'dark' }; }
+  componentDidMount() {
+    // Phone: the tab row scrolls horizontally; bring the current tab into view.
+    setTimeout(() => {
+      try {
+        document.querySelectorAll('.nav').forEach((nav) => {
+          const cur = nav.querySelector('[aria-current="page"]');
+          if (cur && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = Math.max(0, cur.offsetLeft - 16);
+        });
+      } catch (e) {}
+    }, 300);
+  }
+}
+</script>
+</body>
+</html>

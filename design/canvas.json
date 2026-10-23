@@ -1,0 +1,173 @@
+{
+ "v": 3,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-10-23T16:10:00Z"
+ },
+ "title": "Subsync — панель",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "Main.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 1720,
+   "title": "Направление и токены"
+  },
+  "Components.dc.html": {
+   "x": 1520,
+   "y": 0,
+   "w": 1440,
+   "h": 2140,
+   "title": "Компоненты"
+  },
+  "Empty.dc.html": {
+   "x": 3040,
+   "y": 0,
+   "w": 1440,
+   "h": 900,
+   "title": "Язык — пустая очередь",
+   "expand": "fill"
+  },
+  "Language.dc.html": {
+   "x": 0,
+   "y": 2260,
+   "w": 1440,
+   "h": 3400,
+   "title": "Язык и дорожка — тёмная",
+   "expand": "fill"
+  },
+  "Language-light.dc.html": {
+   "x": 1520,
+   "y": 2260,
+   "w": 1440,
+   "h": 3400,
+   "title": "Язык и дорожка — светлая",
+   "expand": "fill"
+  },
+  "Language-phone.dc.html": {
+   "x": 3040,
+   "y": 2260,
+   "w": 390,
+   "h": 5700,
+   "title": "Язык и дорожка — телефон"
+  },
+  "Review.dc.html": {
+   "x": 0,
+   "y": 8080,
+   "w": 1440,
+   "h": 1220,
+   "title": "Проверка — тёмная",
+   "expand": "fill"
+  },
+  "Review-light.dc.html": {
+   "x": 1520,
+   "y": 8080,
+   "w": 1440,
+   "h": 1220,
+   "title": "Проверка — светлая",
+   "expand": "fill"
+  },
+  "Review-phone.dc.html": {
+   "x": 3040,
+   "y": 8080,
+   "w": 390,
+   "h": 1700,
+   "title": "Проверка — телефон"
+  },
+  "Missing.dc.html": {
+   "x": 0,
+   "y": 9900,
+   "w": 1440,
+   "h": 1820,
+   "title": "Не найдено — тёмная",
+   "expand": "fill"
+  },
+  "Missing-light.dc.html": {
+   "x": 1520,
+   "y": 9900,
+   "w": 1440,
+   "h": 1820,
+   "title": "Не найдено — светлая",
+   "expand": "fill"
+  },
+  "Missing-phone.dc.html": {
+   "x": 3040,
+   "y": 9900,
+   "w": 390,
+   "h": 3060,
+   "title": "Не найдено — телефон"
+  },
+  "Priorities.dc.html": {
+   "x": 0,
+   "y": 13080,
+   "w": 1440,
+   "h": 1140,
+   "title": "Приоритеты — тёмная",
+   "expand": "fill"
+  },
+  "Priorities-light.dc.html": {
+   "x": 1520,
+   "y": 13080,
+   "w": 1440,
+   "h": 1140,
+   "title": "Приоритеты — светлая",
+   "expand": "fill"
+  },
+  "Priorities-phone.dc.html": {
+   "x": 3040,
+   "y": 13080,
+   "w": 390,
+   "h": 2680,
+   "title": "Приоритеты — телефон"
+  },
+  "Quality.dc.html": {
+   "x": 0,
+   "y": 15880,
+   "w": 1440,
+   "h": 1100,
+   "title": "Журнал качества — тёмная",
+   "expand": "fill"
+  },
+  "Quality-light.dc.html": {
+   "x": 1520,
+   "y": 15880,
+   "w": 1440,
+   "h": 1100,
+   "title": "Журнал качества — светлая",
+   "expand": "fill"
+  },
+  "Quality-phone.dc.html": {
+   "x": 3040,
+   "y": 15880,
+   "w": 390,
+   "h": 1720,
+   "title": "Журнал качества — телефон"
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "Components.dc.html",
+  "Empty.dc.html",
+  "Language.dc.html",
+  "Language-light.dc.html",
+  "Language-phone.dc.html",
+  "Review.dc.html",
+  "Review-light.dc.html",
+  "Review-phone.dc.html",
+  "Missing.dc.html",
+  "Missing-light.dc.html",
+  "Missing-phone.dc.html",
+  "Priorities.dc.html",
+  "Priorities-light.dc.html",
+  "Priorities-phone.dc.html",
+  "Quality.dc.html",
+  "Quality-light.dc.html",
+  "Quality-phone.dc.html"
+ ],
+ "notes": {},
+ "designSystems": []
+}

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Subsync — проверка субтитров</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./subsync.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="ss" data-theme="{{theme}}">
+<div class="shell">
+  <aside class="rail">
+    <div class="brand"><svg viewBox="0 0 512 512" aria-hidden="true"><rect x="16" y="16" width="480" height="480" rx="104" fill="#161D19" stroke="#7DCE9B" stroke-width="16"></rect><g fill="#F2F5F0"><rect x="91" y="182" width="10" height="36" rx="5"></rect><rect x="111" y="168" width="10" height="64" rx="5"></rect><rect x="131" y="176" width="10" height="48" rx="5"></rect><rect x="151" y="154" width="10" height="92" rx="5"></rect><rect x="171" y="140" width="10" height="120" rx="5"></rect><rect x="191" y="160" width="10" height="80" rx="5"></rect><rect x="211" y="132" width="10" height="136" rx="5"></rect><rect x="231" y="148" width="10" height="104" rx="5"></rect><rect x="251" y="125" width="10" height="150" rx="5"></rect><rect x="271" y="148" width="10" height="104" rx="5"></rect><rect x="291" y="132" width="10" height="136" rx="5"></rect><rect x="311" y="160" width="10" height="80" rx="5"></rect><rect x="331" y="140" width="10" height="120" rx="5"></rect><rect x="351" y="154" width="10" height="92" rx="5"></rect><rect x="371" y="176" width="10" height="48" rx="5"></rect><rect x="391" y="168" width="10" height="64" rx="5"></rect><rect x="411" y="182" width="10" height="36" rx="5"></rect></g><rect x="136" y="318" width="240" height="24" rx="12" fill="#7DCE9B"></rect><rect x="188" y="370" width="136" height="24" rx="12" fill="#7DCE9B"></rect></svg><b>Subsync</b><span>Субтитры для домашней библиотеки</span></div>
+    <div class="status-mini"><span class="live"><i class="dot"></i>Работает</span><span>ночью записано 37</span><span class="num">скачано 44 из 100</span></div>
+    <nav class="nav" aria-label="Разделы">
+      <a href="Language.dc.html"><span>Язык и дорожка</span><span class="count" aria-label="38 ждут решения">38</span></a>
+      <a href="Review.dc.html" aria-current="page"><span>Проверка</span><span class="count" aria-label="17 ждут проверки">17</span></a>
+      <a href="Missing.dc.html"><span>Не найдено</span><span class="count" aria-label="13 можно исправить">13</span></a>
+      <a href="Priorities.dc.html"><span>Приоритеты</span></a>
+      <a href="Quality.dc.html"><span>Журнал качества</span></a>
+    </nav>
+    <div class="status">
+      <div class="live"><i class="dot"></i>Сервис работает</div>
+      <div class="status-item"><b>Ночной проход</b><span>сегодня в 03:05, занял 2 ч 14 мин</span>
+        <dl class="night"><dt>записано</dt><dd>37</dd><dt>отложено на проверку</dt><dd>4</dd><dt>не найдено</dt><dd>12</dd></dl>
+      </div>
+      <div class="status-item"><b>Скачивания сегодня: 44 из 100</b><div class="meter"><i style="width: 44%"></i></div><span>Счётчик обнулится в 03:00. Новые файлы проверяются каждые 2 минуты.</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+  <div class="page" style="max-width: 1120px">
+    <header class="pagehead">
+      <h1 class="t-h1">Проверка субтитров</h1>
+      <p>17 субтитров задержаны: сервис не уверен, что время подогнано точно. Послушайте оригинальную дорожку и посмотрите, появляются ли строки вместе с речью. Текст субтитров не меняется, только время.</p>
+    </header>
+
+    <div class="filterbar">
+      <div class="filterline">
+        <label class="search"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg><span class="vh">Фильтр библиотеки</span><input type="search" placeholder="Название или серия: s06e05, 6x05, s06, e05"></label>
+        <div class="seg" role="group" aria-label="Статус"><button type="button" aria-pressed="true">Ждут проверки<span class="n">17</span></button><button type="button" aria-pressed="false">Одобрено<span class="n">42</span></button><button type="button" aria-pressed="false">Отклонено<span class="n">3</span></button></div>
+        <div class="seg" role="group" aria-label="Язык"><button type="button" aria-pressed="true">Все языки</button><button type="button" aria-pressed="false">ru<span class="n">11</span></button><button type="button" aria-pressed="false">en<span class="n">6</span></button></div>
+      </div>
+    </div>
+
+    <div class="review">
+      <nav class="qlist" aria-label="Задержанные субтитры">
+        <span class="qhead">TVshows / The Mentalist / s06</span>
+        <a class="qitem" href="#" aria-current="true"><b>The.Mentalist.s06e07.WEB-DL.mkv</b><span class="row"><span>английские</span><span class="num">уверенность 0,87</span></span></a>
+        <a class="qitem" href="#"><b>The.Mentalist.s06e07.WEB-DL.mkv</b><span class="row"><span>русские</span><span class="num">уверенность 0,88</span></span></a>
+        <a class="qitem" href="#"><b>The.Mentalist.s06e09.WEB-DL.mkv</b><span class="row"><span>русские</span><span class="num">уверенность 0,81</span></span></a>
+        <span class="qhead">TVshows / Black Mirror / S02</span>
+        <a class="qitem" href="#"><b>Black.Mirror.s02e01.mkv</b><span class="row"><span>русские</span><span class="num">уверенность 0,79</span></span></a>
+        <a class="qitem" href="#"><b>Black.Mirror.s02e03.mkv</b><span class="row"><span>английские</span><span class="num">уверенность 0,84</span></span></a>
+        <span class="qhead">Movies</span>
+        <a class="qitem" href="#"><b>Goodfellas.mkv</b><span class="row"><span>английские</span><span class="num">уверенность 0,84</span></span></a>
+        <span class="qhead">ещё 11 в других папках</span>
+      </nav>
+
+      <section class="bench" aria-labelledby="b-title">
+        <div class="bench-head">
+          <div class="stack" style="gap: 4px; min-width: 0">
+            <span class="crumb">TVshows / The Mentalist / The.Mentalist.s06</span>
+            <h2 class="t-h2" id="b-title" style="overflow-wrap: anywhere">The.Mentalist.s06e07.WEB-DL.mkv</h2>
+            <div class="badges"><span class="badge">английские субтитры</span><span class="badge badge--need">Ждёт проверки</span></div>
+          </div>
+          <div class="pager"><button class="btn btn--quiet" type="button" aria-label="Предыдущий">Назад</button><span class="num">1 из 17</span><button class="btn btn--quiet" type="button" aria-label="Следующий">Дальше</button></div>
+        </div>
+
+        <div class="stack" style="gap: 10px">
+          <ul class="held-why">
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l6 11H2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path><path d="M8 7v3M8 11.8v.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg><span>Только 73 % отрезков согласуются с общей моделью сдвига, а для автоматической записи нужно 85 %.</span></li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l6 11H2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path><path d="M8 7v3M8 11.8v.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg><span>Сдвиг в начале и в конце серии различается на 1,4 с.</span></li>
+          </ul>
+          <div class="conf"><span>Уверенность</span><div class="meter" aria-hidden="true"><i style="width: 87%"></i></div><span class="num"><b>0,87</b> из 1, автоматически пишется от 0,90</span></div>
+        </div>
+
+        <div class="points">
+          <span class="small" style="color: var(--ink-2)">Слушать с точки, где сервис сомневается:</span>
+          <button class="chip" type="button" aria-pressed="false">0:00</button>
+          <button class="chip" type="button" aria-pressed="true">8:12</button>
+          <button class="chip" type="button" aria-pressed="false">21:40</button>
+          <button class="chip" type="button" aria-pressed="false">38:05</button>
+        </div>
+
+        <div class="screen">
+          <div class="sub-stage" aria-live="polite">
+            <p class="sub-now">You said you'd be home by eight.</p>
+            <p class="sub-next">Следующая строка через <b>3,6 с</b>: «I know. The bridge was closed.»</p>
+          </div>
+          <div class="ruler" aria-hidden="true">
+            <span class="ruler-base"></span>
+            <span class="cue" style="left: 2%; width: 7%"></span>
+            <span class="cue is-now" style="left: 13%; width: 10%"></span>
+            <span class="cue" style="left: 32%; width: 9%"></span>
+            <span class="cue" style="left: 45%; width: 13%"></span>
+            <span class="cue" style="left: 65%; width: 6%"></span>
+            <span class="cue" style="left: 79%; width: 14%"></span>
+            <span class="playhead" style="left: 17.5%"></span>
+            <span class="tick" style="left: 0%">8:12</span><span class="tick" style="left: 25%">8:22</span><span class="tick" style="left: 50%">8:32</span><span class="tick" style="left: 75%">8:42</span><span class="tick" style="left: 97%">8:52</span>
+          </div>
+          <div class="transport">
+            <button class="bigplay" type="button" aria-label="Пауза"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="3" height="10" rx="1" fill="currentColor"></rect><rect x="9" y="3" width="3" height="10" rx="1" fill="currentColor"></rect></svg></button>
+            <span class="time">8:19 <span>/ 8:52</span></span>
+            <button class="btn btn--quiet" type="button">Назад на 5 с</button>
+            <button class="btn btn--quiet" type="button">Повторить строку</button>
+            <span class="ruler-legend" style="margin-left: auto"><span><i style="background: var(--screen-cue)"></i>строка</span><span><i style="background: var(--screen-cue-now)"></i>звучит сейчас</span></span>
+          </div>
+        </div>
+
+        <div class="decide">
+          <button class="btn btn--primary btn--lg" type="button">Одобрить и записать рядом с видео</button>
+          <button class="btn btn--danger btn--lg" type="button">Отклонить</button>
+          <span class="spacer"></span>
+          <button class="btn btn--quiet" type="button">Сделать заново…</button>
+          <p class="decide-note">«Одобрить» записывает The.Mentalist.s06e07.WEB-DL.en.srt рядом с видео — текст байт в байт как скачан. 8 секунд можно отменить. «Отклонить» ничего не пишет; субтитр останется в списке отклонённых.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+  </main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":1220}}'>
+class Component extends DCLogic {
+  renderVals() { return { theme: this.props.theme ?? 'dark' }; }
+  componentDidMount() {
+    // Phone: the tab row scrolls horizontally; bring the current tab into view.
+    setTimeout(() => {
+      try {
+        document.querySelectorAll('.nav').forEach((nav) => {
+          const cur = nav.querySelector('[aria-current="page"]');
+          if (cur && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = Math.max(0, cur.offsetLeft - 16);
+        });
+      } catch (e) {}
+    }, 300);
+  }
+}
+</script>
+</body>
+</html>

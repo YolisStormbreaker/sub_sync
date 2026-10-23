@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Subsync — язык и дорожка, всё решено</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./subsync.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="ss" data-theme="{{theme}}">
+<div class="shell">
+  <aside class="rail">
+    <div class="brand"><svg viewBox="0 0 512 512" aria-hidden="true"><rect x="16" y="16" width="480" height="480" rx="104" fill="#161D19" stroke="#7DCE9B" stroke-width="16"></rect><g fill="#F2F5F0"><rect x="91" y="182" width="10" height="36" rx="5"></rect><rect x="111" y="168" width="10" height="64" rx="5"></rect><rect x="131" y="176" width="10" height="48" rx="5"></rect><rect x="151" y="154" width="10" height="92" rx="5"></rect><rect x="171" y="140" width="10" height="120" rx="5"></rect><rect x="191" y="160" width="10" height="80" rx="5"></rect><rect x="211" y="132" width="10" height="136" rx="5"></rect><rect x="231" y="148" width="10" height="104" rx="5"></rect><rect x="251" y="125" width="10" height="150" rx="5"></rect><rect x="271" y="148" width="10" height="104" rx="5"></rect><rect x="291" y="132" width="10" height="136" rx="5"></rect><rect x="311" y="160" width="10" height="80" rx="5"></rect><rect x="331" y="140" width="10" height="120" rx="5"></rect><rect x="351" y="154" width="10" height="92" rx="5"></rect><rect x="371" y="176" width="10" height="48" rx="5"></rect><rect x="391" y="168" width="10" height="64" rx="5"></rect><rect x="411" y="182" width="10" height="36" rx="5"></rect></g><rect x="136" y="318" width="240" height="24" rx="12" fill="#7DCE9B"></rect><rect x="188" y="370" width="136" height="24" rx="12" fill="#7DCE9B"></rect></svg><b>Subsync</b><span>Субтитры для домашней библиотеки</span></div>
+    <div class="status-mini"><span class="live"><i class="dot"></i>Работает</span><span>ночью записано 37</span><span class="num">скачано 44 из 100</span></div>
+    <nav class="nav" aria-label="Разделы">
+      <a href="Language.dc.html" aria-current="page"><span>Язык и дорожка</span></a>
+      <a href="Review.dc.html"><span>Проверка</span><span class="count" aria-label="17 ждут проверки">17</span></a>
+      <a href="Missing.dc.html"><span>Не найдено</span><span class="count" aria-label="13 можно исправить">13</span></a>
+      <a href="Priorities.dc.html"><span>Приоритеты</span></a>
+      <a href="Quality.dc.html"><span>Журнал качества</span></a>
+    </nav>
+    <div class="status">
+      <div class="live"><i class="dot"></i>Сервис работает</div>
+      <div class="status-item"><b>Ночной проход</b><span>сегодня в 03:05, занял 2 ч 14 мин</span>
+        <dl class="night"><dt>записано</dt><dd>37</dd><dt>отложено на проверку</dt><dd>4</dd><dt>не найдено</dt><dd>12</dd></dl>
+      </div>
+      <div class="status-item"><b>Скачивания сегодня: 44 из 100</b><div class="meter"><i style="width: 44%"></i></div><span>Счётчик обнулится в 03:00. Новые файлы проверяются каждые 2 минуты.</span></div>
+    </div>
+  </aside>
+  <main class="main">
+  <div class="page">
+    <header class="pagehead">
+      <h1 class="t-h1">Язык оригинала и дорожка</h1>
+    </header>
+    <div class="empty">
+      <span class="empty-mark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      <h2 class="t-h2">Всё решено, сервису от вас ничего не нужно</h2>
+      <p style="color: var(--ink-2); max-width: 60ch">У всех 812 файлов известны язык оригинала и дорожка. 9 файлов ждут автоопределения — оно идёт само, пока хватает скачиваний. Новые файлы появятся здесь, только если сервис не сможет решить сам.</p>
+      <div class="actions"><a class="btn" href="Review.dc.html">Перейти к проверке: 17 субтитров</a><button class="btn btn--quiet" type="button">Показать «В очереди» и «Выбрано вами»</button></div>
+    </div>
+  </div>
+  </main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return { theme: this.props.theme ?? 'dark' }; }
+  componentDidMount() {
+    // Phone: the tab row scrolls horizontally; bring the current tab into view.
+    setTimeout(() => {
+      try {
+        document.querySelectorAll('.nav').forEach((nav) => {
+          const cur = nav.querySelector('[aria-current="page"]');
+          if (cur && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = Math.max(0, cur.offsetLeft - 16);
+        });
+      } catch (e) {}
+    }, 300);
+  }
+}
+</script>
+</body>
+</html>

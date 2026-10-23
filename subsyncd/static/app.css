@@ -1,0 +1,24 @@
+/* Additions to subsync.css for the running panel: font, page frame, loading placeholders, toast placement, card exit. */
+@font-face { font-family: "Golos Text"; src: url("/static/golos.ttf") format("truetype"); font-weight: 400 900; font-display: swap; }
+html, body { margin: 0; background: #E9EDE4; }
+@media (prefers-color-scheme: dark) { html, body { background: #161D19; } }
+.ss { min-height: 100vh; }
+.shell { min-height: 100vh; background: linear-gradient(to right, var(--surface) 271px, var(--rule) 271px, var(--rule) 272px, transparent 272px); }
+.rail { position: sticky; top: 0; align-self: start; min-height: 100vh; }
+.ph { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-card); }
+.ph i { display: block; height: 14px; margin: 18px 24px; border-radius: 3px; background: var(--sunken); }
+.ph i:first-child { width: 30%; height: 22px; }
+.ph i:nth-child(2) { width: 60%; }
+.toasts { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 20; display: flex; flex-direction: column; gap: 8px; width: min(620px, calc(100% - 32px)); }
+.toast { box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28); }
+.exit { overflow: hidden; transition: height 0.18s ease; }
+@media (prefers-reduced-motion: reduce) { .exit { transition: none; } }
+.link { border: 0; background: none; padding: 0; color: var(--accent-ink); text-decoration: underline; cursor: pointer; font: inherit; }
+.qitem { cursor: pointer; text-align: left; background: transparent; font: inherit; }
+.ruler { cursor: pointer; }
+.why b { font-weight: 600; }
+.group-head > summary, summary.group-head { cursor: pointer; }
+.hidden { display: none !important; }
+.track .tact.feedback { align-self: center; }
+.err-banner { padding: 14px 16px; border-radius: var(--r-control); background: var(--danger-soft); color: var(--ink); }
+@container ss (max-width: 720px) { .rail { position: static; min-height: 0; } .shell { background: none; } .seg { max-width: 100%; overflow-x: auto; } .filterline > .seg { flex: 1 1 100%; } }

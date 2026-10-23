@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Subsync — компоненты</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./subsync.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="ss" data-theme="{{theme}}" style="width: 1440px">
+<div class="sheet">
+  <header class="stack" style="gap: 8px">
+    <h1 class="t-h1">Компоненты</h1>
+    <p class="muted" style="max-width: 70ch">Каждый компонент — в тех состояниях, которые встречаются на экранах. Классы — в subsync.css, разметку можно переносить в код как есть.</p>
+  </header>
+
+  <section class="sheet-sec">
+    <h2 class="t-h2">Дорожка</h2>
+    <div class="specimen">
+      <span class="spec-k">Ожидание, лучший счёт</span>
+      <ol class="tracks">
+        <li class="track">
+          <button class="play" type="button" aria-label="Послушать дорожку 1"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor"></path></svg></button>
+          <div class="track-id"><b>Дорожка 1</b><span>AC3 5.1, язык не указан</span></div>
+          <div class="score is-best"><div class="score-top"><span>Совпадение речи</span><span class="score-val">0,46</span></div><div class="score-bar"><i style="width: 46%"></i></div><span>лучшая по автоопределению</span></div>
+          <label class="tlang"><span class="vh">Язык дорожки 1</span><span class="selectwrap"><select class="select select--sm"><option>Язык: не указан</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+          <button class="btn tact" type="button">Это оригинал</button>
+        </li>
+      </ol>
+      <span class="spec-k">Готовится фрагмент</span>
+      <ol class="tracks">
+        <li class="track">
+          <button class="play is-loading" type="button" aria-label="Фрагмент готовится"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="26 12" stroke-linecap="round"></circle></svg></button>
+          <div class="track-id"><b>Дорожка 2</b><span>Готовлю фрагмент, 1–3 секунды…</span></div>
+          <div class="score"><div class="score-top"><span>Совпадение речи</span><span class="score-val">0,44</span></div><div class="score-bar"><i style="width: 44%"></i></div></div>
+          <label class="tlang"><span class="vh">Язык дорожки 2</span><span class="selectwrap"><select class="select select--sm"><option>Язык: не указан</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+          <button class="btn tact" type="button">Это оригинал</button>
+        </li>
+      </ol>
+      <span class="spec-k">Играет</span>
+      <ol class="tracks">
+        <li class="track is-playing">
+          <button class="play is-on" type="button" aria-label="Пауза, дорожка 1"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="3" height="10" rx="1" fill="currentColor"></rect><rect x="9" y="3" width="3" height="10" rx="1" fill="currentColor"></rect></svg></button>
+          <div class="track-id"><b>Дорожка 1</b><span class="playtime">Играет 0:07 из 0:20</span></div>
+          <div class="score"><div class="score-top"><span>Совпадение речи</span><span class="score-val">нет данных</span></div><div class="score-bar"></div></div>
+          <label class="tlang"><span class="vh">Язык дорожки 1</span><span class="selectwrap"><select class="select select--sm"><option>Язык: не указан</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+          <button class="btn tact" type="button">Это оригинал</button>
+          <i class="track-prog" style="width: 35%"></i>
+        </li>
+      </ol>
+      <span class="spec-k">Язык указан вами</span>
+      <ol class="tracks">
+        <li class="track is-labelled">
+          <button class="play" type="button" aria-label="Послушать дорожку 4"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor"></path></svg></button>
+          <div class="track-id"><b>Дорожка 4</b><span>AC3 2.0, русский — указали вы</span></div>
+          <div class="score"><div class="score-top"><span>Не участвует в сравнении</span></div></div>
+          <label class="tlang"><span class="vh">Язык дорожки 4</span><span class="selectwrap"><select class="select select--sm"><option>Язык: русский</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></label>
+          <span class="tact feedback feedback--saved"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Сохранено</span>
+        </li>
+      </ol>
+      <span class="spec-k">Оригинал по выводу</span>
+      <ol class="tracks">
+        <li class="track is-original is-candidate">
+          <button class="play" type="button" aria-label="Послушать дорожку 2"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor"></path></svg></button>
+          <div class="track-id"><b>Дорожка 2</b><span>AC3 2.0, язык не указан</span></div>
+          <div class="score"><div class="score-top"><span class="badge badge--done">Оригинал — вывод из вашей метки</span></div></div>
+          <span class="tlang"></span>
+          <button class="btn btn--primary tact" type="button">Подтвердить</button>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="sheet-grid">
+  <section class="sheet-sec">
+    <h2 class="t-h2">Сохранение, ошибка, подтверждение, отмена</h2>
+    <div class="specimen">
+      <span class="spec-k">Сохраняется</span>
+      <span class="feedback feedback--saving"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="26 12" stroke-linecap="round"></circle></svg>Сохраняю…</span>
+      <span class="spec-k">Сохранено</span>
+      <span class="feedback feedback--saved"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Язык папки: английский. Применится на следующем проходе: новые файлы — в течение 2 минут, старая библиотека — сегодня ночью.</span>
+      <span class="spec-k">Ошибка сервера</span>
+      <div class="field" style="max-width: 360px">
+        <label for="c-tmdb">Номер TMDb</label>
+        <input class="input" id="c-tmdb" value="tv/1408" aria-invalid="true" aria-describedby="c-tmdb-e">
+        <span class="feedback feedback--error" id="c-tmdb-e"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l6 11H2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path><path d="M8 7v3M8 11.8v.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>Нужны только цифры: 1408 из адреса themoviedb.org/tv/1408.</span>
+      </div>
+      <span class="spec-k">Подтверждение</span>
+      <div class="confirm" style="max-width: 620px">
+        <p class="t-h3">Сделать субтитр заново?</p>
+        <p>Текущий результат удалится. Сервис соберёт субтитр заново на следующем проходе, сегодня ночью. Рядом с видео ничего не меняется.</p>
+        <div class="actions"><button class="btn btn--danger-solid" type="button">Да, сделать заново</button><button class="btn" type="button">Оставить как есть</button></div>
+      </div>
+      <span class="spec-k">Отмена после записи</span>
+      <div class="toast" role="status">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span class="grow">Одобрено. Файл The.Mentalist.s06e07.ru.srt будет записан рядом с видео.</span>
+        <span class="toast-timer">через 8 с</span>
+        <button class="btn" type="button">Отменить</button>
+      </div>
+      <span class="spec-k">Карточка ушла</span>
+      <div class="collapsed-stub" style="max-width: 620px"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>doctor.who.s03e04.avi: оригинал — дорожка 2. Перенесено в «Выбрано вами».</span><button class="btn btn--quiet" type="button">Отменить</button></div>
+      <span class="spec-k">Причина «только ждать»</span>
+      <div class="wait-note" style="margin: 0; max-width: 620px"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"></circle><path d="M8 4.8V8l2.2 1.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg><span>32 файла: эти серии есть на es, en, tr, но русских субтитров пока никто не загрузил. Подсказка тут не поможет. Сервис повторит поиск сам 30 октября.</span></div>
+    </div>
+  </section>
+
+  <section class="sheet-sec">
+    <h2 class="t-h2">Фильтр, чипы, дерево, метки</h2>
+    <div class="specimen">
+      <span class="spec-k">Фильтр библиотеки</span>
+      <div class="filterline">
+        <label class="search"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg><span class="vh">Фильтр библиотеки</span><input type="search" value="doctor s03" placeholder="Название или серия: s06e05, 6x05, s06, e05"></label>
+        <span class="filter-note">Найдено 14 файлов в 1 папке</span>
+      </div>
+      <span class="spec-k">Чипы причин</span>
+      <div class="reasons">
+        <div class="reasons-row"><span class="reasons-kind">Можно исправить</span><button class="chip" type="button" aria-pressed="true">Название не найдено в базе <span class="n">9</span></button><button class="chip" type="button" aria-pressed="false">Не разобрано имя файла <span class="n">4</span></button></div>
+        <div class="reasons-row"><span class="reasons-kind">Нужно только ждать</span><button class="chip" type="button" aria-pressed="false">Есть только на других языках <span class="n">38</span></button><button class="chip" type="button" aria-pressed="false">Всё отсеяно фильтрами <span class="n">6</span></button></div>
+      </div>
+      <span class="spec-k">Переключатель</span>
+      <div class="seg" role="group" aria-label="Вердикт"><button type="button" aria-pressed="true">Все<span class="n">412</span></button><button type="button" aria-pressed="false">Сомнительные<span class="n">23</span></button><button type="button" aria-pressed="false">Надёжные<span class="n">389</span></button></div>
+      <span class="spec-k">Узел дерева</span>
+      <div class="stack" style="gap: 4px; max-width: 520px">
+        <details class="node"><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Doctor.Who_S02<span class="tally">1 файл</span></summary></details>
+        <details class="node" open><summary><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Doctor.Who_S03<span class="tally">2 файла</span></summary><div class="node-body"><span class="small muted">карточки файлов…</span></div></details>
+      </div>
+      <span class="spec-k">Статусы</span>
+      <div class="badges">
+        <span class="badge badge--need">Нужен ваш выбор</span>
+        <span class="badge badge--queue">В очереди на автоопределение</span>
+        <span class="badge badge--done">Выбрано вами</span>
+        <span class="badge badge--need">Ждёт проверки</span>
+        <span class="badge badge--done">Одобрено, записано</span>
+        <span class="badge badge--bad">Отклонено</span>
+        <span class="badge badge--done">Записано автоматически</span>
+        <span class="badge badge--need">Задержано на проверку</span>
+        <span class="badge badge--bad">Ошибка</span>
+        <span class="badge">Тест</span>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <section class="sheet-sec">
+    <h2 class="t-h2">Строка состояния сервиса</h2>
+    <div class="status-specs">
+      <div>
+      <span class="spec-k muted small">Компьютер, боковая панель</span>
+      <div class="rail" style="width: 272px; border: 1px solid var(--rule); border-radius: 6px; padding: 4px 20px 24px">
+        <div class="status" style="border-top: 0; margin-top: 0">
+          <div class="live"><i class="dot"></i>Сервис работает</div>
+          <div class="status-item"><b>Ночной проход</b><span>сегодня в 03:05, занял 2 ч 14 мин</span>
+            <dl class="night"><dt>записано</dt><dd>37</dd><dt>отложено на проверку</dt><dd>4</dd><dt>не найдено</dt><dd>12</dd></dl>
+          </div>
+          <div class="status-item"><b>Скачивания сегодня: 44 из 100</b><div class="meter"><i style="width: 44%"></i></div><span>Счётчик обнулится в 03:00. Новые файлы проверяются каждые 2 минуты.</span></div>
+        </div>
+      </div>
+      </div>
+      <div style="max-width: 420px">
+      <span class="spec-k muted small">Сервис не отвечает</span>
+      <div class="live" style="color: var(--danger); align-items: flex-start"><i class="dot dot--off" style="margin-top: 6px"></i><span>Сервис не отвечает с 14:20. Решения сохраняются, но применятся после перезапуска.</span></div>
+      </div>
+      <div>
+      <span class="spec-k muted small">Телефон, одна строка</span>
+      <div class="ss" data-theme="{{theme}}" style="width: 390px; border: 1px solid var(--rule); border-radius: 6px">
+        <div class="rail" style="border: 0; padding: 14px 16px; gap: 8px">
+          <div class="status-mini" style="display: flex"><span class="live"><i class="dot"></i>Работает</span><span>ночью записано 37</span><span class="num">скачано 44 из 100</span></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":2140}}'>
+class Component extends DCLogic {
+  renderVals() { return { theme: this.props.theme ?? 'dark' }; }
+}
+</script>
+</body>
+</html>

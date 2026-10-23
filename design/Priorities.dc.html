@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Subsync — приоритеты</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./subsync.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="ss" data-theme="{{theme}}">
+<div class="shell">
+  <aside class="rail">
+    <div class="brand"><svg viewBox="0 0 512 512" aria-hidden="true"><rect x="16" y="16" width="480" height="480" rx="104" fill="#161D19" stroke="#7DCE9B" stroke-width="16"></rect><g fill="#F2F5F0"><rect x="91" y="182" width="10" height="36" rx="5"></rect><rect x="111" y="168" width="10" height="64" rx="5"></rect><rect x="131" y="176" width="10" height="48" rx="5"></rect><rect x="151" y="154" width="10" height="92" rx="5"></rect><rect x="171" y="140" width="10" height="120" rx="5"></rect><rect x="191" y="160" width="10" height="80" rx="5"></rect><rect x="211" y="132" width="10" height="136" rx="5"></rect><rect x="231" y="148" width="10" height="104" rx="5"></rect><rect x="251" y="125" width="10" height="150" rx="5"></rect><rect x="271" y="148" width="10" height="104" rx="5"></rect><rect x="291" y="132" width="10" height="136" rx="5"></rect><rect x="311" y="160" width="10" height="80" rx="5"></rect><rect x="331" y="140" width="10" height="120" rx="5"></rect><rect x="351" y="154" width="10" height="92" rx="5"></rect><rect x="371" y="176" width="10" height="48" rx="5"></rect><rect x="391" y="168" width="10" height="64" rx="5"></rect><rect x="411" y="182" width="10" height="36" rx="5"></rect></g><rect x="136" y="318" width="240" height="24" rx="12" fill="#7DCE9B"></rect><rect x="188" y="370" width="136" height="24" rx="12" fill="#7DCE9B"></rect></svg><b>Subsync</b><span>Субтитры для домашней библиотеки</span></div>
+    <div class="status-mini"><span class="live"><i class="dot"></i>Работает</span><span>ночью записано 37</span><span class="num">скачано 44 из 100</span></div>
+    <nav class="nav" aria-label="Разделы">
+      <a href="Language.dc.html"><span>Язык и дорожка</span><span class="count" aria-label="38 ждут решения">38</span></a>
+      <a href="Review.dc.html"><span>Проверка</span><span class="count" aria-label="17 ждут проверки">17</span></a>
+      <a href="Missing.dc.html"><span>Не найдено</span><span class="count" aria-label="13 можно исправить">13</span></a>
+      <a href="Priorities.dc.html" aria-current="page"><span>Приоритеты</span></a>
+      <a href="Quality.dc.html"><span>Журнал качества</span></a>
+    </nav>
+    <div class="status">
+      <div class="live"><i class="dot"></i>Сервис работает</div>
+      <div class="status-item"><b>Ночной проход</b><span>сегодня в 03:05, занял 2 ч 14 мин</span>
+        <dl class="night"><dt>записано</dt><dd>37</dd><dt>отложено на проверку</dt><dd>4</dd><dt>не найдено</dt><dd>12</dd></dl>
+      </div>
+      <div class="status-item"><b>Скачивания сегодня: 44 из 100</b><div class="meter"><i style="width: 44%"></i></div><span>Счётчик обнулится в 03:00. Новые файлы проверяются каждые 2 минуты.</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+  <div class="page">
+    <header class="pagehead">
+      <h1 class="t-h1">Приоритеты</h1>
+      <p>В каком порядке сервис обходит библиотеку на трёх этапах. 1 — первым, 9 — последним, «Пауза» — не трогать. Более точный путь важнее: настройка файла перекрывает папку, папка — раздел. Каждое поле сохраняется сразу и действует со следующего прохода.</p>
+    </header>
+
+    <div class="filterbar">
+      <div class="filterline">
+        <label class="search"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg><span class="vh">Фильтр библиотеки</span><input type="search" placeholder="Название или серия: s06e05, 6x05, s06, e05"></label>
+        <div class="seg" role="group" aria-label="Показать"><button type="button" aria-pressed="true">Всё</button><button type="button" aria-pressed="false">Только изменённые<span class="n">7</span></button></div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><b>Сплошная рамка</b> — значение задано здесь.</span>
+      <span><b>Пунктир</b> — унаследовано; под полем указано откуда.</span>
+    </div>
+
+    <div class="tablebox">
+      <table class="ptable">
+        <thead>
+          <tr>
+            <th scope="col">Раздел, папка или файл</th>
+            <th scope="col">Сканирование<small>поиск новых и изменённых файлов</small></th>
+            <th scope="col">Скачивание<small>тратит дневную квоту</small></th>
+            <th scope="col">Синхронизация<small>нагружает процессор NAS</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="lvl-0">
+            <td class="pname"><div class="pname-in"><svg class="chev" viewBox="0 0 16 16" aria-hidden="true" style="transform: rotate(90deg)"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><b>TVshows</b><span class="tally">раздел, 412 файлов</span></div></td>
+            <td><div class="pcell" data-stage="Сканирование"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Сканирование, TVshows"><option>По умолчанию</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5, общее значение</span></div></td>
+            <td><div class="pcell" data-stage="Скачивание"><span class="selectwrap"><select class="select select--sm" aria-label="Скачивание, TVshows"><option>3</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">задано здесь, по умолчанию 5</span></div></td>
+            <td><div class="pcell" data-stage="Синхронизация"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Синхронизация, TVshows"><option>По умолчанию</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5, общее значение</span></div></td>
+          </tr>
+          <tr class="lvl-1">
+            <td class="pname"><div class="pname-in"><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><b>Doctor Who</b><span class="tally">62 файла</span></div></td>
+            <td><div class="pcell" data-stage="Сканирование"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Сканирование, Doctor Who"><option>По умолчанию</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5, общее значение</span></div></td>
+            <td><div class="pcell" data-stage="Скачивание"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Скачивание, Doctor Who"><option>Как у раздела</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 3, от TVshows</span></div></td>
+            <td><div class="pcell" data-stage="Синхронизация"><span class="selectwrap"><select class="select select--sm" aria-label="Синхронизация, Doctor Who"><option>Пауза</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="feedback feedback--saved"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Сохранено. Синхронизация папки остановится со следующего прохода.</span></div></td>
+          </tr>
+          <tr class="lvl-1">
+            <td class="pname"><div class="pname-in"><svg class="chev" viewBox="0 0 16 16" aria-hidden="true" style="transform: rotate(90deg)"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><b>The Mentalist</b><span class="tally">151 файл</span></div></td>
+            <td><div class="pcell" data-stage="Сканирование"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Сканирование, The Mentalist"><option>По умолчанию</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5, общее значение</span></div></td>
+            <td><div class="pcell" data-stage="Скачивание"><span class="selectwrap"><select class="select select--sm" aria-label="Скачивание, The Mentalist"><option>1 — первым</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">задано здесь</span></div></td>
+            <td><div class="pcell" data-stage="Синхронизация"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Синхронизация, The Mentalist"><option>Как у раздела</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5, общее значение</span></div></td>
+          </tr>
+          <tr class="lvl-2">
+            <td class="pname"><div class="pname-in"><span title="TVshows/The Mentalist/The.Mentalist.s06/The.Mentalist.s06e01.WEB-DL.mkv">The.Mentalist.s06e01.WEB-DL.mkv</span></div></td>
+            <td><div class="pcell" data-stage="Сканирование"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Сканирование, s06e01"><option>Как у папки</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5</span></div></td>
+            <td><div class="pcell" data-stage="Скачивание"><span class="selectwrap"><select class="select select--sm" aria-label="Скачивание, s06e01"><option>Пауза</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">задано здесь, у папки 1</span></div></td>
+            <td><div class="pcell" data-stage="Синхронизация"><span class="selectwrap"><select class="select select--sm" aria-label="Синхронизация, s06e01"><option>Пауза</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">задано здесь</span></div></td>
+          </tr>
+          <tr class="lvl-2">
+            <td class="pname"><div class="pname-in"><span title="TVshows/The Mentalist/The.Mentalist.s06/The.Mentalist.s06e03.WEB-DL.mkv">The.Mentalist.s06e03.WEB-DL.mkv</span></div></td>
+            <td><div class="pcell" data-stage="Сканирование"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Сканирование, s06e03"><option>Как у папки</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5</span></div></td>
+            <td><div class="pcell" data-stage="Скачивание"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Скачивание, s06e03"><option>Как у папки</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 1, от TVshows/The Mentalist</span></div></td>
+            <td><div class="pcell" data-stage="Синхронизация"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Синхронизация, s06e03"><option>Как у папки</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="feedback feedback--error"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l6 11H2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path><path d="M8 7v3M8 11.8v.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>Не сохранилось: сервис не ответил. Значение прежнее.</span></div></td>
+          </tr>
+          <tr class="lvl-0">
+            <td class="pname"><div class="pname-in"><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><b>Movies</b><span class="tally">раздел, 214 файлов</span></div></td>
+            <td><div class="pcell" data-stage="Сканирование"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Сканирование, Movies"><option>По умолчанию</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5</span></div></td>
+            <td><div class="pcell" data-stage="Скачивание"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Скачивание, Movies"><option>По умолчанию</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5</span></div></td>
+            <td><div class="pcell" data-stage="Синхронизация"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Синхронизация, Movies"><option>По умолчанию</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5</span></div></td>
+          </tr>
+          <tr class="lvl-0">
+            <td class="pname"><div class="pname-in"><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><b>Anime</b><span class="tally">раздел, 118 файлов</span></div></td>
+            <td><div class="pcell" data-stage="Сканирование"><span class="selectwrap"><select class="select select--sm" aria-label="Сканирование, Anime"><option>7</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">задано здесь, по умолчанию 5</span></div></td>
+            <td><div class="pcell" data-stage="Скачивание"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Скачивание, Anime"><option>По умолчанию</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5</span></div></td>
+            <td><div class="pcell" data-stage="Синхронизация"><span class="selectwrap"><select class="select select--sm is-inherited" aria-label="Синхронизация, Anime"><option>По умолчанию</option></select><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6L8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="inherit">сейчас 5</span></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":1140}}'>
+class Component extends DCLogic {
+  renderVals() { return { theme: this.props.theme ?? 'dark' }; }
+  componentDidMount() {
+    // Phone: the tab row scrolls horizontally; bring the current tab into view.
+    setTimeout(() => {
+      try {
+        document.querySelectorAll('.nav').forEach((nav) => {
+          const cur = nav.querySelector('[aria-current="page"]');
+          if (cur && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = Math.max(0, cur.offsetLeft - 16);
+        });
+      } catch (e) {}
+    }, 300);
+  }
+}
+</script>
+</body>
+</html>

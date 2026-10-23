@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Subsync — журнал качества</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./subsync.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="ss" data-theme="{{theme}}">
+<div class="shell">
+  <aside class="rail">
+    <div class="brand"><svg viewBox="0 0 512 512" aria-hidden="true"><rect x="16" y="16" width="480" height="480" rx="104" fill="#161D19" stroke="#7DCE9B" stroke-width="16"></rect><g fill="#F2F5F0"><rect x="91" y="182" width="10" height="36" rx="5"></rect><rect x="111" y="168" width="10" height="64" rx="5"></rect><rect x="131" y="176" width="10" height="48" rx="5"></rect><rect x="151" y="154" width="10" height="92" rx="5"></rect><rect x="171" y="140" width="10" height="120" rx="5"></rect><rect x="191" y="160" width="10" height="80" rx="5"></rect><rect x="211" y="132" width="10" height="136" rx="5"></rect><rect x="231" y="148" width="10" height="104" rx="5"></rect><rect x="251" y="125" width="10" height="150" rx="5"></rect><rect x="271" y="148" width="10" height="104" rx="5"></rect><rect x="291" y="132" width="10" height="136" rx="5"></rect><rect x="311" y="160" width="10" height="80" rx="5"></rect><rect x="331" y="140" width="10" height="120" rx="5"></rect><rect x="351" y="154" width="10" height="92" rx="5"></rect><rect x="371" y="176" width="10" height="48" rx="5"></rect><rect x="391" y="168" width="10" height="64" rx="5"></rect><rect x="411" y="182" width="10" height="36" rx="5"></rect></g><rect x="136" y="318" width="240" height="24" rx="12" fill="#7DCE9B"></rect><rect x="188" y="370" width="136" height="24" rx="12" fill="#7DCE9B"></rect></svg><b>Subsync</b><span>Субтитры для домашней библиотеки</span></div>
+    <div class="status-mini"><span class="live"><i class="dot"></i>Работает</span><span>ночью записано 37</span><span class="num">скачано 44 из 100</span></div>
+    <nav class="nav" aria-label="Разделы">
+      <a href="Language.dc.html"><span>Язык и дорожка</span><span class="count" aria-label="38 ждут решения">38</span></a>
+      <a href="Review.dc.html"><span>Проверка</span><span class="count" aria-label="17 ждут проверки">17</span></a>
+      <a href="Missing.dc.html"><span>Не найдено</span><span class="count" aria-label="13 можно исправить">13</span></a>
+      <a href="Priorities.dc.html"><span>Приоритеты</span></a>
+      <a href="Quality.dc.html" aria-current="page"><span>Журнал качества</span></a>
+    </nav>
+    <div class="status">
+      <div class="live"><i class="dot"></i>Сервис работает</div>
+      <div class="status-item"><b>Ночной проход</b><span>сегодня в 03:05, занял 2 ч 14 мин</span>
+        <dl class="night"><dt>записано</dt><dd>37</dd><dt>отложено на проверку</dt><dd>4</dd><dt>не найдено</dt><dd>12</dd></dl>
+      </div>
+      <div class="status-item"><b>Скачивания сегодня: 44 из 100</b><div class="meter"><i style="width: 44%"></i></div><span>Счётчик обнулится в 03:00. Новые файлы проверяются каждые 2 минуты.</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+  <div class="page">
+    <header class="pagehead">
+      <h1 class="t-h1">Журнал качества</h1>
+      <p>Последняя оценка каждого субтитра. Надёжные сервис записал сам, сомнительные отложил на проверку. Здесь ничего не меняется — это история решений.</p>
+    </header>
+
+    <div class="filterbar">
+      <div class="filterline">
+        <label class="search"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg><span class="vh">Фильтр библиотеки</span><input type="search" value="s06" placeholder="Название или серия: s06e05, 6x05, s06, e05"></label>
+        <div class="seg" role="group" aria-label="Вердикт"><button type="button" aria-pressed="true">Все<span class="n">48</span></button><button type="button" aria-pressed="false">Сомнительные<span class="n">5</span></button><button type="button" aria-pressed="false">Надёжные<span class="n">43</span></button></div>
+        <div class="seg" role="group" aria-label="Порядок"><button type="button" aria-pressed="true">По библиотеке</button><button type="button" aria-pressed="false">По времени</button></div>
+      </div>
+      <span class="filter-note">Фильтр «s06»: 48 записей из 412</span>
+    </div>
+
+    <div class="tablebox">
+      <table class="ftable qtable">
+        <thead><tr><th scope="col">Файл</th><th scope="col">Язык</th><th scope="col">Вердикт</th><th scope="col">Уверенность</th><th scope="col">Что сделано</th><th scope="col">Почему</th><th scope="col">Когда</th></tr></thead>
+        <tbody>
+          <tr class="qgroup"><td colspan="7">TVshows / The Mentalist / The.Mentalist.s06</td></tr>
+          <tr>
+            <td class="fcell">The.Mentalist.s06e03.WEB-DL.mkv</td><td data-label="язык">ru</td>
+            <td><span class="badge badge--done">Надёжно</span></td>
+            <td><span class="scorecell"><span class="meter" aria-hidden="true"><i style="width: 96%"></i></span><span class="num">0,96</span></span></td>
+            <td>Записано</td>
+            <td class="why-cell why-list">Сдвиг ровный по всей серии.</td>
+            <td class="ncell" data-label="">сегодня, 03:12</td>
+          </tr>
+          <tr>
+            <td class="fcell">The.Mentalist.s06e03.WEB-DL.mkv</td><td data-label="язык">en</td>
+            <td><span class="badge badge--done">Надёжно</span></td>
+            <td><span class="scorecell"><span class="meter" aria-hidden="true"><i style="width: 94%"></i></span><span class="num">0,94</span></span></td>
+            <td>Записано</td>
+            <td class="why-cell why-list">Сдвиг ровный по всей серии.</td>
+            <td class="ncell" data-label="">сегодня, 03:12</td>
+          </tr>
+          <tr>
+            <td class="fcell">The.Mentalist.s06e07.WEB-DL.mkv</td><td data-label="язык">en</td>
+            <td><span class="badge badge--need">Сомнительно</span></td>
+            <td><span class="scorecell"><span class="meter" aria-hidden="true"><i style="width: 87%; background: var(--attn)"></i></span><span class="num">0,87</span></span></td>
+            <td><a href="Review.dc.html">Отложено на проверку</a></td>
+            <td class="why-cell why-list">Только 73 % отрезков согласуются с общей моделью сдвига (нужно 85 %). Сдвиг в начале и в конце различается на 1,4 с.</td>
+            <td class="ncell" data-label="">сегодня, 03:19</td>
+          </tr>
+          <tr>
+            <td class="fcell">The.Mentalist.s06e08.WEB-DL.mkv</td><td data-label="язык">ru</td>
+            <td><span class="badge badge--bad">Ошибка</span></td>
+            <td><span class="muted">—</span></td>
+            <td>Не синхронизировано</td>
+            <td class="why-cell why-list">Не удалось прочитать звуковую дорожку: ffmpeg завершился с ошибкой. Повторим на следующем проходе.</td>
+            <td class="ncell" data-label="">сегодня, 03:24</td>
+          </tr>
+          <tr class="qgroup"><td colspan="7">TVshows / Doctor Who / Doctor.Who_S06</td></tr>
+          <tr>
+            <td class="fcell">doctor.who.s06e05.mkv</td><td data-label="язык">ru</td>
+            <td><span class="badge badge--done">Надёжно</span></td>
+            <td><span class="scorecell"><span class="meter" aria-hidden="true"><i style="width: 92%"></i></span><span class="num">0,92</span></span></td>
+            <td>Записано</td>
+            <td class="why-cell why-list">Сдвиг меняется по сценам, все переходы подтверждены речью.</td>
+            <td class="ncell" data-label="">22 октября, 03:40</td>
+          </tr>
+          <tr>
+            <td class="fcell">doctor.who.s06e10.mkv</td><td data-label="язык">en</td>
+            <td><span class="badge">Тест</span></td>
+            <td><span class="scorecell"><span class="meter" aria-hidden="true"><i style="width: 91%"></i></span><span class="num">0,91</span></span></td>
+            <td>Тестовый прогон, ничего не записано</td>
+            <td class="why-cell why-list">Запуск из командной строки с флагом проверки.</td>
+            <td class="ncell" data-label="">20 октября, 18:02</td>
+          </tr>
+          <tr class="qgroup"><td colspan="7">ещё 42 записи в 5 папках</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() { return { theme: this.props.theme ?? 'dark' }; }
+  componentDidMount() {
+    // Phone: the tab row scrolls horizontally; bring the current tab into view.
+    setTimeout(() => {
+      try {
+        document.querySelectorAll('.nav').forEach((nav) => {
+          const cur = nav.querySelector('[aria-current="page"]');
+          if (cur && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = Math.max(0, cur.offsetLeft - 16);
+        });
+      } catch (e) {}
+    }, 300);
+  }
+}
+</script>
+</body>
+</html>

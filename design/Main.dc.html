@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Subsync — направление и токены</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./subsync.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.swl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+.sw{display:grid;grid-template-columns:44px minmax(0,1fr);gap:0 12px;align-items:center}
+.sw i{grid-row:span 2;width:44px;height:44px;border-radius:6px;border:1px solid var(--rule)}
+.sw b{font-size:14px;font-weight:600}
+.sw span{font-size:13px;color:var(--ink-3)}
+</style>
+</helmet>
+<div class="ss" data-theme="dark" style="width: 1440px; min-height: 1560px; padding: 56px 64px 64px; display: flex; flex-direction: column; gap: 40px">
+  <header style="display: flex; gap: 40px; align-items: flex-start">
+  <div style="display: flex; flex-direction: column; gap: 12px; max-width: 900px; flex: 1">
+    <p class="muted t-small">Subsync, панель администратора. Редизайн, версия 1, 23 октября 2026</p>
+    <h1 class="t-display">Монтажный стол</h1>
+    <p class="t-body" style="color: var(--ink-2); max-width: 72ch">Панель как стол монтажёра: оливковые эмалевые поверхности, шалфейно-зелёный сигнал «это оригинал, можно писать», янтарная лампа «нужно ваше решение» и один тёмный экран воспроизведения, который остаётся тёмным в обеих темах. Смелость потрачена в одном месте — на экран проверки с крупной строкой и линейкой реплик; всё остальное тихое и плотное.</p>
+  </div>
+  <figure style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+    <svg viewBox="0 0 512 512" width="176" height="176" role="img" aria-label="Иконка Subsync"><rect x="16" y="16" width="480" height="480" rx="104" fill="#161D19" stroke="#7DCE9B" stroke-width="16"></rect><g fill="#F2F5F0"><rect x="91" y="182" width="10" height="36" rx="5"></rect><rect x="111" y="168" width="10" height="64" rx="5"></rect><rect x="131" y="176" width="10" height="48" rx="5"></rect><rect x="151" y="154" width="10" height="92" rx="5"></rect><rect x="171" y="140" width="10" height="120" rx="5"></rect><rect x="191" y="160" width="10" height="80" rx="5"></rect><rect x="211" y="132" width="10" height="136" rx="5"></rect><rect x="231" y="148" width="10" height="104" rx="5"></rect><rect x="251" y="125" width="10" height="150" rx="5"></rect><rect x="271" y="148" width="10" height="104" rx="5"></rect><rect x="291" y="132" width="10" height="136" rx="5"></rect><rect x="311" y="160" width="10" height="80" rx="5"></rect><rect x="331" y="140" width="10" height="120" rx="5"></rect><rect x="351" y="154" width="10" height="92" rx="5"></rect><rect x="371" y="176" width="10" height="48" rx="5"></rect><rect x="391" y="168" width="10" height="64" rx="5"></rect><rect x="411" y="182" width="10" height="36" rx="5"></rect></g><rect x="136" y="318" width="240" height="24" rx="12" fill="#7DCE9B"></rect><rect x="188" y="370" width="136" height="24" rx="12" fill="#7DCE9B"></rect></svg>
+    <figcaption class="tiny muted" style="max-width: 200px; text-align: center">Иконка: форма прежняя, рамка и строки — accent #7DCE9B, плитка — #161D19</figcaption>
+  </figure>
+  </header>
+
+  <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+    <div class="ss" data-theme="light" style="padding: 28px; border-radius: 6px; border: 1px solid var(--rule); display: flex; flex-direction: column; gap: 20px">
+      <h2 class="t-h2">Светлая тема</h2>
+      <div class="swl">
+        <div class="sw"><i style="background: var(--ground)"></i><b>ground</b><span>#E9EDE4 · фон страницы</span></div>
+        <div class="sw"><i style="background: var(--surface)"></i><b>surface</b><span>#F5F7F1 · группа, боковая панель</span></div>
+        <div class="sw"><i style="background: var(--raised)"></i><b>raised</b><span>#FFFFFF · карточка, поле</span></div>
+        <div class="sw"><i style="background: var(--sunken)"></i><b>sunken</b><span>#DFE5D9 · колодцы, шкалы</span></div>
+        <div class="sw"><i style="background: var(--ink)"></i><b>ink</b><span>#24302A · текст</span></div>
+        <div class="sw"><i style="background: var(--ink-2)"></i><b>ink-2</b><span>#4A5850 · пояснения</span></div>
+        <div class="sw"><i style="background: var(--ink-3)"></i><b>ink-3</b><span>#5B6960 · подписи, 5,4:1 на surface</span></div>
+        <div class="sw"><i style="background: var(--rule-strong)"></i><b>rule / rule-strong</b><span>#C9D2C3 / #95A393</span></div>
+        <div class="sw"><i style="background: var(--accent)"></i><b>accent</b><span>#217A50 · оригинал, одобрить; текст на нём белый</span></div>
+        <div class="sw"><i style="background: var(--accent-soft)"></i><b>accent-soft / -ink</b><span>#D2E8D9 / #145236</span></div>
+        <div class="sw"><i style="background: var(--attn)"></i><b>attn / -soft</b><span>#8A5300 / #F5E1BA · нужен выбор</span></div>
+        <div class="sw"><i style="background: var(--info)"></i><b>info / -soft</b><span>#2E5884 / #DCE6F1 · в очереди</span></div>
+        <div class="sw"><i style="background: var(--danger)"></i><b>danger / -soft</b><span>#A22C24 / #F6DAD6 · отклонить</span></div>
+        <div class="sw"><i style="background: var(--screen)"></i><b>screen</b><span>#0F1612 · экран проверки</span></div>
+      </div>
+    </div>
+    <div class="ss" data-theme="dark" style="padding: 28px; border-radius: 6px; border: 1px solid var(--rule); background: var(--ground); display: flex; flex-direction: column; gap: 20px">
+      <h2 class="t-h2">Тёмная тема</h2>
+      <div class="swl">
+        <div class="sw"><i style="background: var(--ground)"></i><b>ground</b><span>#161D19</span></div>
+        <div class="sw"><i style="background: var(--surface)"></i><b>surface</b><span>#1C2520</span></div>
+        <div class="sw"><i style="background: var(--raised)"></i><b>raised</b><span>#242F29</span></div>
+        <div class="sw"><i style="background: var(--sunken)"></i><b>sunken</b><span>#121814</span></div>
+        <div class="sw"><i style="background: var(--ink)"></i><b>ink</b><span>#E4EBE3</span></div>
+        <div class="sw"><i style="background: var(--ink-2)"></i><b>ink-2</b><span>#B0BDB3</span></div>
+        <div class="sw"><i style="background: var(--ink-3)"></i><b>ink-3</b><span>#8F9D93 · 5,6:1 на surface</span></div>
+        <div class="sw"><i style="background: var(--rule-strong)"></i><b>rule / rule-strong</b><span>#33413A / #4E6055</span></div>
+        <div class="sw"><i style="background: var(--accent)"></i><b>accent</b><span>#7DCE9B · текст на нём #0E2317</span></div>
+        <div class="sw"><i style="background: var(--accent-soft)"></i><b>accent-soft / -ink</b><span>#223D2D / #A8E3BE</span></div>
+        <div class="sw"><i style="background: var(--attn)"></i><b>attn / -soft</b><span>#E9B65E / #3A2F18</span></div>
+        <div class="sw"><i style="background: var(--info)"></i><b>info / -soft</b><span>#95B9E0 / #1E2B3A</span></div>
+        <div class="sw"><i style="background: var(--danger)"></i><b>danger / -soft</b><span>#F08D81 / #3D2320</span></div>
+        <div class="sw"><i style="background: var(--screen-cue-now)"></i><b>screen-cue / -now</b><span>#3B5646 / #7DCE9B</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 class="t-h2" style="padding-bottom: 8px; border-bottom: 1px solid var(--rule)">Шрифт и шкала</h2>
+      <p class="t-small" style="color: var(--ink-2)">Golos Text — один шрифт на всё, 400/500/600/700. Нарисован для русского интерфейса, лицензия OFL; в продакшене встраивается woff2-подмножеством латиница + кириллица (~45 КБ на начертание). Запасной стек: PT Root UI, PT Sans, system-ui. Цифры везде, где есть время и счётчики, — табличные (tnum).</p>
+      <div style="display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 14px 20px; align-items: baseline">
+        <span class="tiny muted">display 36/40, 700</span><span class="t-display">Монтажный стол</span>
+        <span class="tiny muted">h1 30/34, 700</span><span class="t-h1">Язык оригинала и дорожка</span>
+        <span class="tiny muted">h2 23/28, 700</span><span class="t-h2">Doctor Who</span>
+        <span class="tiny muted">h3 18/24, 600</span><span class="t-h3">doctor.who.s03e04.avi</span>
+        <span class="tiny muted">body 16/23, 400</span><span class="t-body">Послушайте обе дорожки с одного момента и выберите оригинал.</span>
+        <span class="tiny muted">small 14/20</span><span class="t-small">Применится на следующем проходе: новые файлы — в течение 2 минут.</span>
+        <span class="tiny muted">caption 13/18</span><span class="t-caption muted">AC3 5.1, язык не указан</span>
+        <span class="tiny muted">subtitle 32/40, 600</span><span style="font-size: 32px; line-height: 1.25; font-weight: 600">Ты обещал вернуться к восьми.</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 class="t-h2" style="padding-bottom: 8px; border-bottom: 1px solid var(--rule)">Ритм, радиусы, принципы</h2>
+      <div style="display: flex; align-items: flex-end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 6px; align-items: center"><i style="display: block; width: 4px; height: 4px; background: var(--accent)"></i><span class="tiny muted">4</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; align-items: center"><i style="display: block; width: 8px; height: 8px; background: var(--accent)"></i><span class="tiny muted">8</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; align-items: center"><i style="display: block; width: 12px; height: 12px; background: var(--accent)"></i><span class="tiny muted">12</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; align-items: center"><i style="display: block; width: 16px; height: 16px; background: var(--accent)"></i><span class="tiny muted">16</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; align-items: center"><i style="display: block; width: 24px; height: 24px; background: var(--accent)"></i><span class="tiny muted">24</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; align-items: center"><i style="display: block; width: 32px; height: 32px; background: var(--accent)"></i><span class="tiny muted">32</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; align-items: center"><i style="display: block; width: 48px; height: 48px; background: var(--accent)"></i><span class="tiny muted">48</span></div>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: center">
+        <div style="width: 72px; height: 44px; border: 1px solid var(--rule-strong); border-radius: 3px; display: grid; place-items: center" class="tiny muted">3 — поле</div>
+        <div style="width: 72px; height: 44px; border: 1px solid var(--rule-strong); border-radius: 6px; display: grid; place-items: center" class="tiny muted">6 — карта</div>
+        <div style="width: 72px; height: 32px; border: 1px solid var(--rule-strong); border-radius: 999px; display: grid; place-items: center" class="tiny muted">чип</div>
+        <div style="width: 44px; height: 44px; border: 1px solid var(--rule-strong); border-radius: 50%; display: grid; place-items: center" class="tiny muted">44</div>
+      </div>
+      <ul class="t-small" style="display: flex; flex-direction: column; gap: 10px; color: var(--ink-2)">
+        <li>Цвет несёт смысл, а не украшение: зелёный — оригинал и запись, янтарный — нужно ваше решение, синий — ждёт сервис, красный — отказ. Рядом всегда текст.</li>
+        <li>Глубина — тоном поверхности и тонкой линией. Теней нет, кроме тоста.</li>
+        <li>Каждая кнопка называет, что она меняет; под ней — когда сервис это сделает.</li>
+        <li>Сохранение не двигает страницу: карточка схлопывается на месте, фокус уходит на следующую.</li>
+        <li>Цели нажатия от 44 px; на телефоне решение по субтитру — под большим пальцем.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1720}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
