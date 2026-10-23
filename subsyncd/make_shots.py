@@ -50,10 +50,11 @@ prio.Priorities(state + '/priorities.json').set('TVshows/The Mentalist', {'downl
 missing.Hints(state + '/searchhints.json').set('TVshows/Doctor Who', None, 57243)
 threading.Thread(target=web.serve, args=(18744, root, state), daemon=True).start(); time.sleep(0.6)
 pw = open(state + '/web_password').read().strip()
-import shutil; os.makedirs(state + '/fonts', exist_ok=True); shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'fonts', 'GolosText.ttf'), state + '/fonts/GolosText.ttf')
+import shutil; FONT = os.environ.get('GOLOS_TTF', '')  # optional: without it the panel falls back to system fonts
+if FONT: os.makedirs(state + '/fonts', exist_ok=True); shutil.copy(FONT, state + '/fonts/GolosText.ttf')
 import json as _j, time as _t; _j.dump({'beat': int(_t.time()), 'kind': None}, open(state + '/activity.json', 'w'))
-st_ = _j.load(open(state + '/state.json')); st_['night'] = {'date': 'x', 'start': int(_t.time()) - 20000, 'end': int(_t.time()) - 12000, 'busy': 8040, 'written': 37, 'held': 4, 'notfound': 12, 'finished': True}
-st_['daily'] = {'date': __import__('datetime').datetime.now(__import__('datetime').timezone.utc).strftime('%Y-%m-%d'), 'new': 3, 'backlog': 41}; _j.dump(st_, open(state + '/state.json', 'w'))
+import statedb; st_ = statedb.load(state); st_['night'] = {'date': 'x', 'start': int(_t.time()) - 20000, 'end': int(_t.time()) - 12000, 'busy': 8040, 'written': 37, 'held': 4, 'notfound': 12, 'finished': True}
+st_['daily'] = {'date': __import__('datetime').datetime.now(__import__('datetime').timezone.utc).strftime('%Y-%m-%d'), 'new': 3, 'backlog': 41}; statedb.save(state, st_)
 from playwright.sync_api import sync_playwright
 U = 'http://127.0.0.1:18744'
 errs = []

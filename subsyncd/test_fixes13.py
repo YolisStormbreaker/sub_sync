@@ -95,11 +95,11 @@ except ValueError as e: assert 'replaced' in str(e)
 print('M7 ok')
 
 # M8 + grouping: the panel lists one card per existing file; loose files sit under their section
-st = json.load(open(state + '/state.json')) if os.path.exists(state + '/state.json') else {}
+import statedb; st = statedb.load(state)
 g1 = os.path.join(root, 'Movies/Gone.mkv'); m1 = os.path.join(root, 'Movies/Loose.mkv'); os.makedirs(os.path.dirname(m1), exist_ok=True); open(m1, 'wb').write(b'x')
 two = {'audio': [{'rel': 0, 'index': 1, 'lang': 'und', 'title': '', 'original': False}, {'rel': 1, 'index': 2, 'lang': 'und', 'title': '', 'original': False}], 'subs': [], 'duration': 9}
 st['probe'] = {'%s|1|%d' % (m1, 100): two, '%s|1|%d' % (m1, 200): dict(two, audio=two['audio'] * 1 + [dict(two['audio'][0], rel=2)]), '%s|1|5' % g1: two}
-json.dump(st, open(state + '/state.json', 'w'))
+statedb.save(state, st)
 import views; s_ = views.build_state(root, state); paths = [f['path'] for g in s_['groups'] for k in ('need', 'queue', 'mine') for f in g[k]]
 assert paths.count('Movies/Loose.mkv') == 1 and 'Movies/Gone.mkv' not in paths, paths
 g = [g for g in s_['groups'] if any(f['path'] == 'Movies/Loose.mkv' for f in g['need'])][0]; assert g['path'] == 'Movies' and g['loose'] and len(g['need'][0]['tracks']) == 3

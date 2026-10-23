@@ -22,3 +22,8 @@ html, body { margin: 0; background: #E9EDE4; }
 .track .tact.feedback { align-self: center; }
 .err-banner { padding: 14px 16px; border-radius: var(--r-control); background: var(--danger-soft); color: var(--ink); }
 @container ss (max-width: 720px) { .rail { position: static; min-height: 0; } .shell { background: none; } .seg { max-width: 100%; overflow-x: auto; } .filterline > .seg { flex: 1 1 100%; } }
+
+/* Every spinner turns, wherever it sits: the design only animated it inside .play, so the big review button and the
+   "saving" feedback showed a still ring. ss-spin is defined in subsync.css. */
+svg.spin { animation: ss-spin 0.9s linear infinite; transform-origin: 50% 50%; }
+@media (prefers-reduced-motion: reduce) { svg.spin { animation-duration: 2.4s; } }

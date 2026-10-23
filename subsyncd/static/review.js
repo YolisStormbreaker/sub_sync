@@ -83,7 +83,7 @@ function workbench(m) {
     cues.forEach(x => ruler.insertBefore(h('span', { class: 'cue', style: 'left:' + Math.max(0, x.s) / LEN * 100 + '%;width:' + Math.max(0.4, (Math.min(LEN, x.e) - Math.max(0, x.s)) / LEN * 100) + '%' }), head));
     [0, 25, 50, 75, 97].forEach((x, i) => ruler.append(h('span', { class: 'tick', style: 'left:' + x + '%' }, clock(p + i * LEN / 4))));
     if (autoplay !== false) Player.play('/api/review/' + m.id + '/clip?t=' + p + '&len=' + LEN, big, (state, a, err) => {
-      if (state === 'loading') big.replaceChildren(icon('spin'));
+      if (state === 'loading') { big.replaceChildren(icon('spin')); big.setAttribute('aria-label', 'Фрагмент готовится'); }
       else if (state === 'playing') { big.replaceChildren(icon('pause')); big.setAttribute('aria-label', 'Пауза'); }
       else if (state === 'error') { big.replaceChildren(icon('play')); now.textContent = 'Не получилось: ' + err; }
       else if (state !== 'tick') { big.replaceChildren(icon('play')); big.setAttribute('aria-label', 'Слушать'); }

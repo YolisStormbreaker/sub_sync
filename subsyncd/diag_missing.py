@@ -1,4 +1,4 @@
-"""Back-fills missing.json for the empty searches recorded before reasons were kept (state.json 'notfound').
+"""Back-fills missing.json for the empty searches recorded before reasons were kept (state 'notfound').
 Searches only (no download quota). Run inside the container while the service is idle:  python3 diag_missing.py [--limit N]"""
 import os, sys, time
 import main, media, missing

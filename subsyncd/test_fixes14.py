@@ -19,9 +19,10 @@ st = {'probe': {'%s|10|1' % a: {}, '%s|10|2' % a: {}, '%s|5|3' % a: {}, '%s|10|1
 n = main.prune_state(st)
 assert list(st['probe']) == ['%s|10|2' % a] and list(st['tracks']) == ['%s|10' % a] and list(st['notfound']) == ['%s|10|ru' % a]
 assert st['failed'] == {} and list(st['seen']) == [a] and n == 8, (n, st)
-main.save_state(st); raw = open(state + '/state.json').read(); assert '\n' not in raw and ': ' not in raw, 'compact'
-st['x'] = 1; main.save_state(st, force=False); assert 'x' not in json.load(open(state + '/state.json')), 'throttled'
-main._saved[0] = 0; main.save_state(st, force=False); assert json.load(open(state + '/state.json'))['x'] == 1
+import statedb
+main.save_state(st); assert statedb.load(state) == st, 'a plain dict replaces the state'
+st['x'] = 1; main.save_state(st, force=False); assert 'x' not in statedb.load(state), 'throttled'
+main._saved[0] = 0; main.save_state(st, force=False); assert statedb.load(state)['x'] == 1
 assert json.load(open(state + '/activity.json'))['beat'] >= int(time.time()) - 2
 
 # detection: a failed comparison is tried again after RETRY_DAYS, a fresh one is kept

@@ -1,5 +1,5 @@
 """Why a subtitle search found nothing, and the search hints (title / TMDb id) a person can give to fix it.
-missing.json  {"<video>|<size>|<lang>": {"at", "lang", "code", "ru", "en", "query", "others", "hint"}}  reasons, kept next to state.json's 'notfound'
+missing.json  {"<video>|<size>|<lang>": {"at", "lang", "code", "ru", "en", "query", "others", "hint"}}  reasons, kept next to the state's 'notfound' table
 searchhints.json  {"TVshows/Doctor Who": {"title": "...", "tmdb": 57243, "at": ts}}  longest matching path wins; 'at' makes the next run search again."""
 import os, time
 import media

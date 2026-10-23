@@ -11,7 +11,7 @@
 The subtitle text is never altered: engines see a timing skeleton and the result is written back into the original bytes."""
 import argparse, contextlib, datetime, fcntl, json, os, shutil, struct, sys, threading, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import engines, jsonstore, media, missing, osapi, prio, quality, resolve, review, tmdb
+import engines, jsonstore, media, missing, osapi, prio, quality, resolve, review, statedb, tmdb
 from resolve import track_key
 from overrides import Overrides
 from srtio import parse_times, retime, strip_times, text_unchanged
@@ -36,10 +36,7 @@ def log(*a):
 
 
 def load_state():
-    try:
-        return json.load(open(os.path.join(STATE, 'state.json')))
-    except (OSError, ValueError):
-        return {}
+    return statedb.load(STATE)
 
 
 SAVE_EVERY = 30  # seconds between routine saves during a run; downloads and the end of a run always save at once
@@ -48,12 +45,12 @@ ACTIVITY = {'kind': None, 'since': None}
 
 
 def save_state(st, force=True):
-    """Compact JSON, fsynced and renamed into place. force=False skips the write if the last one was less than SAVE_EVERY ago:
-    the file is a few MB, and rewriting it after every item of an 800-file night is most of the disk traffic."""
+    """Writes the rows that changed since the last save (statedb). force=False skips the save if the last one was less
+    than SAVE_EVERY ago: each save still serialises the whole state in memory to find what changed."""
     if not force and time.time() - _saved[0] < SAVE_EVERY:
         return
     with STATE_LOCK:
-        jsonstore.write(os.path.join(STATE, 'state.json'), st, indent=None)
+        statedb.save(STATE, st)
         _saved[0] = time.time()
     beat()
 

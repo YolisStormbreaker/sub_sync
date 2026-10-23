@@ -25,6 +25,6 @@ main.cmd_plan(type('A', (), dict(files=[])))
 main.cmd_fetch(a)
 out = open(os.path.join(os.path.dirname(v), 'Show.S01E02.720p.ru.srt'), 'rb').read(); print(out)
 main.cmd_plan(type('A', (), dict(files=[])))
-print(json.load(open(state + '/state.json')).get('quota'), os.listdir(state))
+import statedb; print(statedb.load(state).get('quota'), os.listdir(state))
 
 print('refs seen by sync (en first, then ru):', refs); assert refs == [None, [1.5, 10.5]], refs

@@ -35,9 +35,12 @@ An independent pass over the whole service, followed by fixes. The fixes were de
 - **L5.** `srtio.text_unchanged` compares line by line: the same number of lines, and the only lines allowed to differ are timing lines at cue starts (after a blank line, an index line or the start of the file, with an optional BOM), both matching the strict timing pattern, with identical tails. It runs in addition to the old `strip_times` check.
 - **Architecture, partly.** Russian language names live once, in `media.LANG_NAMES_RU`, checked against `media.LANGS` at import. `RETRY_DAYS` is defined once in `media`. View models moved from `web.py` to `views.py`; `web.py` is HTTP only, and the pages are static files in `static/`.
 
+## Fixed in the third pass (stage 15)
+
+- **M9, rest.** The state moved from `state.json` to SQLite (`statedb.py`, `state.db`, WAL). The code keeps working with a dict; a save writes only the rows that changed, in one transaction, so a save after one item writes a few rows instead of a few MB. Two writers no longer overwrite each other's state. At 5000 files (1.8 MB of JSON) a load takes about as long as parsing the old file, and a save of one change writes one row.
+
 ## Not fixed yet
 
-- **M9, rest.** Separate files or sqlite instead of one `state.json`.
 - **L9.** `requalify.py` runs without the run lock.
 - **L10.** `existing_langs` matches by prefix: `Film.mkv` is credited with `Film.Part2.en.srt`.
 - **Architecture, rest.** Dub detection is written twice. `rel` means both a path and a track index. `engines.LAST` is module state.

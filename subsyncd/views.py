@@ -1,8 +1,8 @@
-"""What the panel shows, built from the service's files: state.json (probe cache, detection results, empty searches, quota),
+"""What the panel shows, built from the service's files: state.db (probe cache, detection results, empty searches, quota),
 overrides.json, searchhints.json, missing.json, priorities.json, the review store and the quality log.
 Pure functions of (root, state_dir); the HTTP side is in web.py."""
-import datetime, json, os, time
-import jsonstore, media, missing, prio, quality, resolve, review, tmdb
+import datetime, json, os, sqlite3, time
+import jsonstore, media, missing, prio, quality, resolve, review, statedb, tmdb
 from overrides import Overrides
 
 LN = media.LANG_NAMES_RU
@@ -14,11 +14,11 @@ FIXABLE = ('unknown', 'no_guess')  # reasons a search hint can fix; the others o
 STALE_AFTER = 30 * 60  # no sign of life from the service for this long: the panel says it is not responding
 
 
-def load_state(state_dir):
+def load_state(state_dir, tables=None):
     try:
-        return json.load(open(os.path.join(state_dir, 'state.json')))
-    except (OSError, ValueError):
-        return {}
+        return statedb.load(state_dir, tables)
+    except sqlite3.Error:
+        return {}  # locked for longer than the timeout or unreadable: the page shows nothing rather than an error
 
 
 def group_of(rel):
@@ -170,7 +170,7 @@ def build_state(root, state_dir):
 
 
 def build_missing(root, state_dir):
-    """Empty searches (state.json 'notfound') with the recorded reason; files that are gone or were replaced are left out.
+    """Empty searches (state 'notfound') with the recorded reason; files that are gone or were replaced are left out.
     'soon': a hint was saved after the last search, so the service searches again within a poll interval."""
     st = load_state(state_dir)
     why, hints, items = missing.load(state_dir), missing.Hints(os.path.join(state_dir, 'searchhints.json')), []
@@ -240,7 +240,7 @@ def build_review(state_dir):
 
 def build_status(root, state_dir):
     """Rail of every page: is the service alive, what it is doing, last night, today's downloads, what waits for the person."""
-    st = load_state(state_dir)
+    st = load_state(state_dir, ('daily', 'quota', 'night'))
     try:
         act = jsonstore.read(os.path.join(state_dir, 'activity.json'))
     except jsonstore.Corrupt:

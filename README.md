@@ -18,7 +18,7 @@ Working copy of **subsyncd**, the subtitle service on the Synology NAS (192.168.
 | `design/` | The design handed over for the redesign: `DESIGN.md`, `subsync.css`, page mock-ups | — |
 | `docs/subsync-panel-design-brief.md` | Redesign brief for the panel; `docs/screenshots/` shows the current panel with test data | — |
 
-State lives outside the code, in `/volume1/docker/subsync/` (`/state` in the container): `state.json` (probe cache, detection results, not-found log, quota), `overrides.json` (language and track choices), `searchhints.json`, `missing.json`, `priorities.json`, `quality.jsonl`, the review store, `raw/` (untouched downloaded subtitles), `web_password`, and API credentials.
+State lives outside the code, in `/volume1/docker/subsync/` (`/state` in the container): `state.db` (SQLite: probe cache, detection results, not-found log, quota; see `statedb.py`), `overrides.json` (language and track choices), `searchhints.json`, `missing.json`, `priorities.json`, `quality.jsonl`, the review store, `raw/` (untouched downloaded subtitles), `web_password`, and API credentials.
 
 ## Modules
 
@@ -30,6 +30,7 @@ State lives outside the code, in `/volume1/docker/subsync/` (`/state` in the con
 - `srtio.py`: timing-only rewrite; the text bytes are never touched.
 - `quality.py`: quality gate and log. `review.py`: held items, clips, approve, reject, retry. `requalify.py`: re-gates held items from stored metrics.
 - `osapi.py`: OpenSubtitles REST client. `tmdb.py`: TMDb lookups. `missing.py`: reasons for empty searches and search hints.
+- `statedb.py`: the working state in SQLite (WAL). The code still sees one dict; a save writes only the rows that changed. The first start imports `state.json` and keeps it as `state.json.pre-sqlite`.
 - `overrides.py`, `prio.py`: the person's choices. They are built on `jsonstore.py`: a read-modify-write under an flock on `<file>.lock`, a unique temp file, fsync and an atomic rename. A file that cannot be parsed is never overwritten.
 - `web.py`: admin panel HTTP layer (stdlib server, Basic auth, page shell, `/static/`, JSON API). `views.py`: the view models behind the API, including `/api/status` for the rail (service activity from `<state>/activity.json`, last night's summary, quota, badge counts).
 - The panel font is Golos Text, served from `<state>/fonts/GolosText.ttf`; without the file the panel falls back to system fonts.
@@ -40,9 +41,9 @@ The tests need Python 3.10+, ffmpeg, numpy, webrtcvad and ffsubsync. `test_web_u
 
 ```sh
 cd subsyncd
-python3 test_gate.py && python3 test_flow.py && python3 test_missing.py && python3 test_all.py && python3 test_fixes13.py && python3 test_fixes14.py
+python3 test_gate.py && python3 test_flow.py && python3 test_missing.py && python3 test_all.py && python3 test_fixes13.py && python3 test_fixes14.py && python3 test_statedb.py
 python3 test_engine.py && python3 test_saw.py
-python3 test_web_ui.py /tmp/shots     # drives every page in headless Chromium
+GOLOS_TTF=path/to/GolosText.ttf python3 test_web_ui.py /tmp/shots   # drives every page in headless Chromium; the font is optional
 python3 make_shots.py /tmp/shots      # screenshots of all pages with test data
 ```
 

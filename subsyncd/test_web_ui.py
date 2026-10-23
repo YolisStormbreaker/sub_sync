@@ -33,7 +33,8 @@ k = '%s|%d|ru' % (lou, os.path.getsize(lou)); nf[k] = time.time() - 3600
 missing.record(state, k, {'at': 1, 'lang': 'ru', 'code': 'unknown', 'ru': 'OpenSubtitles не знает такую серию.', 'en': '', 'query': '', 'others': {}})
 json.dump({'probe': probe, 'notfound': nf, 'daily': {}, 'quota': {}}, open(state + '/state.json', 'w'))
 json.dump({'beat': int(time.time())}, open(state + '/activity.json', 'w'))
-import shutil; os.makedirs(state + '/fonts'); shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'fonts', 'GolosText.ttf'), state + '/fonts/GolosText.ttf')
+import shutil; FONT = os.environ.get('GOLOS_TTF', '')  # optional; without it the font request 404s and is not counted as an error
+if FONT: os.makedirs(state + '/fonts'); shutil.copy(FONT, state + '/fonts/GolosText.ttf')
 srt = ''.join('%d\n00:00:%02d,000 --> 00:00:%02d,500\nLine %d <i>x</i>\n\n' % (i + 1, 10 + 4 * i, 12 + 4 * i, i + 1) for i in range(12)).encode()
 rel_m = os.path.relpath(ment, root)
 q = quality.assess({'chain_q': {'acts': 5, 'windows': 150, 'inliers': 110, 'near': 0.66, 'resid_med': 0.3, 'p': 0.0, 'cuts': [3]}}, 'ok', True)
@@ -72,7 +73,7 @@ from playwright.sync_api import sync_playwright
 with sync_playwright() as p:
     b = p.chromium.launch(); ctx = b.new_context(http_credentials={'username': 'u', 'password': pw}, viewport={'width': 1280, 'height': 900}, color_scheme='dark')
     pg = ctx.new_page(); errs = []
-    pg.on('response', lambda r: errs.append('HTTP %d %s' % (r.status, r.url)) if r.status >= 400 else None); pg.on('pageerror', lambda e: errs.append(str(e))); pg.on('console', lambda m: errs.append(m.text) if m.type == 'error' and 'favicon' not in m.text else None)
+    pg.on('response', lambda r: errs.append('HTTP %d %s' % (r.status, r.url)) if r.status >= 400 and not (r.status == 404 and not FONT and r.url.endswith('golos.ttf')) else None); pg.on('pageerror', lambda e: errs.append(str(e))); pg.on('console', lambda m: errs.append(m.text) if m.type == 'error' and 'favicon' not in m.text and not (not FONT and '404' in m.text) else None)
     card = lambda name: pg.locator('article.card', has=pg.locator('h3.fname', has_text=name))
 
     # ---------- language page
@@ -144,6 +145,9 @@ with sync_playwright() as p:
 
     # ---------- review: approve with an 8 s undo window
     pg.goto(U + '/review'); pg.wait_for_selector('.qitem')
+    # every spinner turns, including the big play button of a review item (it used to stay still while the clip loaded)
+    assert pg.evaluate("() => { const b = document.querySelector('.bigplay'); b.replaceChildren(icon('spin')); return getComputedStyle(b.firstChild).animationName }") == 'ss-spin'
+    pg.reload(); pg.wait_for_selector('.qitem')
     assert pg.locator('.qitem').count() == 2
     pg.locator('.points .chip', has_text='0:08').click()
     pg.wait_for_function("Player.a && Player.a.readyState >= 2 && Player.a.currentTime > 2.5", timeout=20000)
