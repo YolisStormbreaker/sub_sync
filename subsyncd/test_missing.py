@@ -89,3 +89,15 @@ v = os.path.join(root, 'Movies/Many/Many.mkv'); os.makedirs(os.path.dirname(v));
 tr = {resolve.track_key(v): {'lang': 'en', 'rel': 1, 'margin': 0.0, 'sure': False, 'metrics': {'0': {}, '1': {}, '2': {}}}}
 assert resolve._entry(tr, v, 'en', [0, 1, 2]) is not None and resolve._entry(tr, v, 'en', [0, 1]) is None and resolve._entry(tr, v, 'en') is not None
 print('tlangs ok')
+
+# a file name without SxxEyy or year: the person's TMDb id or title makes it a film search, not a hash-only one
+import osapi as _o
+q = _o.OS.build_query('en', 'abc', None, {'tmdb': 569547, 'title': 'Black Mirror: Bandersnatch'})
+assert q['type'] == 'movie' and q['tmdb_id'] == 569547 and 'moviehash_match' not in q and 'query' not in q, q
+q = _o.OS.build_query('en', 'abc', None, {'tmdb': None, 'title': 'Black Mirror: Bandersnatch'})
+assert q['query'] == 'black mirror: bandersnatch' and q['type'] == 'movie', q
+assert _o.OS.build_query('en', 'abc', None, None)['moviehash_match'] == 'only'
+assert missing.classify('en', None, {}, {'tmdb': 569547, 'title': None})[0] == 'unknown'
+assert missing.classify('en', None, {'ru': 3}, {'tmdb': 569547, 'title': None})[0] == 'other_langs'
+assert missing.classify('en', None, {}, None)[0] == 'no_guess'
+print('hint without a parsable name ok')

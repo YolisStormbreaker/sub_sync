@@ -36,6 +36,7 @@ function hintForm(path, items) {
     if (await save(fb, () => post('/api/hint', { path, title: t || null, tmdb: n === '' ? null : n }), note)) { await reload(); redraw(path); }
   };
   const form = h('form', { class: 'hintform', 'aria-label': 'Подсказка для поиска: ' + path.split('/').pop() });
+  const scope = h('p', { class: 'help' }, /\.[a-z0-9]{2,4}$/i.test(path) ? 'Подсказка действует только на файл ' + path.split('/').pop() + '.' : 'Подсказка действует на всю папку ' + path.split('/').slice(1).join(' / ') + '.');
   form.addEventListener('submit', e => { e.preventDefault(); const n = check(); if (n === null) { tmdb.focus(); return; }
     send(title.value.trim(), n, 'Поиск по этой папке начнётся в течение 2 минут, не дожидаясь ' + SS.retryDays + ' дней.'); });
   const now = h('div', { class: 'hint-now' });
@@ -43,7 +44,7 @@ function hintForm(path, items) {
     now.append(h('span', null, 'Ваша подсказка от ' + when(cur.at) + ': ' + (cur.tmdb ? 'TMDb ' + cur.tmdb : '') + (cur.tmdb && cur.title ? ', ' : '') + (cur.title ? '«' + cur.title + '»' : '') + '.'),
       h('button', { class: 'btn btn--quiet', type: 'button', onclick: async () => { if (await save(fb, () => post('/api/hint', { path, remove: true }), 'Подсказка убрана.')) { await reload(); redraw(path); } } }, 'Убрать подсказку'));
   } else now.textContent = 'Подсказки пока нет.';
-  form.append(now,
+  form.append(now, scope,
     h('div', { class: 'field' }, h('label', { for: title.id }, 'Название, как в TMDb'), title, h('span', { class: 'help' }, 'Можно на любом языке, на котором его знает TMDb.')),
     h('div', { class: 'field' }, h('label', { for: tmdb.id }, 'Номер в TMDb'), tmdb, err, h('span', { class: 'help' }, 'Число из адреса themoviedb.org/' + (ep ? 'tv' : 'movie') + '/…')),
     h('div', { class: 'actions' }, h('button', { class: 'btn btn--primary', type: 'submit' }, 'Сохранить и искать снова'),
@@ -95,7 +96,7 @@ function groupEl(path, items) {
     const seen = new Set(); fix.forEach(i => { if (!seen.has(i.code)) { seen.add(i.code); sum.append(h('p', { class: 'why' }, h('b', null, R[i.code] + '.'), ' ' + i.ru)); } });
     sec.append(sum);
     sec.append(first.loose ? h('p', { class: 'help', style: 'padding:0 24px 16px' }, 'Это отдельные файлы в разделе ' + first.section + ': подсказка здесь задела бы весь раздел. Переименуйте файл по схеме «Название год» или положите его в свою папку.')
-      : hintForm(path, items));
+      : hintForm(fix.length === 1 ? fix[0].path : path, fix.length === 1 ? fix : items));
   }
   const waiting = items.filter(i => !i.fixable);
   if (waiting.length) {

@@ -88,6 +88,14 @@ class OS:
                     q['tmdb_id'] = int(hint['tmdb'])
                 else:
                     q['query'] = title
+        elif hint.get('tmdb') or hint.get('title'):
+            # The name says nothing (no SxxEyy, no year), but a person told us what it is: search as a film by TMDb id or
+            # title. Without a season and episode number a series id cannot pick an episode, so this is for films only.
+            q['type'] = 'movie'
+            if hint.get('tmdb'):
+                q['tmdb_id'] = int(hint['tmdb'])
+            else:
+                q['query'] = hint['title'].lower()
         elif video_hash:
             q['moviehash_match'] = 'only'
         else:

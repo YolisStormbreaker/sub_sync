@@ -25,9 +25,11 @@ def clear(state_dir, key):
 
 
 def describe_query(guess, hint):
-    if not guess:
-        return 'по хеш-сумме файла'
     hint = hint or {}
+    if not guess:
+        if hint.get('tmdb'):
+            return 'фильм TMDb %s' % hint['tmdb']
+        return ('фильм «%s»' % hint['title']) if hint.get('title') else 'по хеш-сумме файла'
     what = ('TMDb %s' % hint['tmdb']) if hint.get('tmdb') else '«%s»' % (hint.get('title') or guess['title'])
     if guess['type'] == 'episode':
         return '%s, сезон %d, серия %d' % (what, guess['season'], guess['episode'])
@@ -37,10 +39,11 @@ def describe_query(guess, hint):
 def classify(lang, guess, others, hint=None):
     """The reason a search came back empty, in Russian for the panel and in English for the log. `others` = languages found without the filter."""
     q = describe_query(guess, hint)
-    if not guess:
+    hinted = bool(hint and (hint.get('tmdb') or hint.get('title')))
+    if not guess and not hinted:
         return ('no_guess', 'Не удалось понять по имени файла, что это за серия или фильм (нужно «Название SxxEyy» или «Название год»), '
                 'поэтому искал только по хеш-сумме файла, и такого файла в базе нет.', 'file name has no SxxEyy / year, hash-only search found nothing')
-    if guess['type'] == 'episode' and guess['episode'] == 0:
+    if guess and guess['type'] == 'episode' and guess['episode'] == 0:
         return ('special', 'Серия с номером 0 — спецвыпуск. На OpenSubtitles спецвыпуски лежат в «сезоне 0» под другими номерами, поэтому поиск по 0-й серии пуст.',
                 'episode 0 (special): not indexed under that number')
     if others and lang not in others:
@@ -57,7 +60,8 @@ def classify(lang, guess, others, hint=None):
 def diagnose(osc, lang, video_hash, guess, hint=None):
     """Runs the language census and returns the record to store."""
     others = {}
-    if guess and not (guess['type'] == 'episode' and guess['episode'] == 0):
+    usable = guess or (hint and (hint.get('tmdb') or hint.get('title')))
+    if usable and not (guess and guess['type'] == 'episode' and guess['episode'] == 0):
         try:
             others = osc.languages_found(video_hash, guess, hint)
         except RuntimeError:
